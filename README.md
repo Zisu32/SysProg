@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Arm Cortex-M4 Base Project
 
 Example Workspace für die Vorlesung Systemnahe Programmierung 2 an der
@@ -85,7 +84,3 @@ Die CMake Presets werden direkt als build-target angeboten
 TODO:
  - [ ] Plugins
  - [ ] Configuration
-=======
-# SysProg
-DHBW Projekt C und Assembler
->>>>>>> 6f85a8aa7ca83f7d2fb1e60886f2714d02ed4ccb
