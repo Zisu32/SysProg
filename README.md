@@ -1,2 +1,2 @@
 # SysProg
-DHBW Projekt C und Assambler
+DHBW Projekt C und Assembler
