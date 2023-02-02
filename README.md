@@ -84,3 +84,7 @@ Die CMake Presets werden direkt als build-target angeboten
 TODO:
  - [ ] Plugins
  - [ ] Configuration
+
+
+
+Neue .c files immer in CmakeList.txt einfügen unter "target_sources"
