@@ -53,6 +53,9 @@ Bauen:
   ```cmake --build --preset arm-cortex-m4```
  - Klassisch:
    ```cmake --build build```
+   
+   
+Neue .c files immer in CmakeList.txt einfügen unter "target_sources"
  
 ## Running in Wind River Simics
 Install Wind River Simics (Currently only for Windows and Linux available)
@@ -87,4 +90,3 @@ TODO:
 
 
 
-Neue .c files immer in CmakeList.txt einfügen unter "target_sources"
