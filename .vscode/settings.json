@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "user_actions.h": "c",
+        "hal.h": "c"
+    }
+}
