@@ -1,4 +1,5 @@
 #include "logic.h"
+#include "user_actions.h"
 
 #define MAX_WRONG_TRIES = 11;
 int wrong_guesses =0;
@@ -12,8 +13,8 @@ void start_sysTick(void){}
 void SysTick_Handler(void){}
 
 void init_guessed_word(char * guessed_word){
-    for(int i = 0;i<sizeof(guessed_word); i++)
+    for(int i = 0;i<(10*sizeof(char)); i++)
     {
-        guessed_word[i] = '_';
+        guessed_word[i]= '_';
     }
 }

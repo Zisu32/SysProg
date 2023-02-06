@@ -1,8 +1,101 @@
 #include "user_actions.h"
 
+#include <stdio.h>
+
+const char *HANGMAN_ASCII_ART[] = {
+    "\n\n\n\n\n\n\n\n\n",
+    " _______\n\r"
+    " |/     |\n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |\n\r"
+    " |\n\r"
+    "_|___\n\r",
+    " _______\n\r"
+    " |/     |\n\r"
+    " |      (\n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |\n\r"
+    " |\n\r"
+    "_|___\n\r",
+    " _______\n\r"
+    " |/     |\n\r"
+    " |      ()\n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |\n\r"
+    " |\n\r"
+    "_|___\n\r",
+    " _______\n\r"
+    " |/     |\n\r"
+    " |      ()\n\r"
+    " |      \\ \n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |\n\r"
+    " |\n\r"
+    "_|___\n\r",
+    " _______\n\r"
+    " |/     |\n\r"
+    " |      ()\n\r"
+    " |    \\| \n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |\n\r"
+    " |\n\r"
+    "_|___\n\r",
+    " _______\n\r"
+    " |/     |\n\r"
+    " |      ()\n\r"
+    " |    \\|/\n\r"
+    " |       \n\r"
+    " |       \n\r"
+    " |\n\r"
+    " |\n\r"
+    "_|___\n\r",
+    " _______\n\r"
+    " |/     |\n\r"
+    " |      ()\n\r"
+    " |    \\|/\n\r"
+    " |      |\n\r"
+    " |       \n\r"
+    " |\n\r"
+    " |\n\r"
+    "_|___\n\r",
+    " _______\n\r"
+    " |/     |\n\r"
+    " |      ()\n\r"
+    " |    \\|/\n\r"
+    " |      |\n\r"
+    " |      /\n\r"
+    " |\n\r"
+    " |\n\r"
+    "_|___\n\r",
+    " _______\n\r"
+    " |/     |\n\r"
+    " |      ()\n\r"
+    " |    \\|/\n\r"
+    " |      |\n\r"
+    " |     / \\\n\r"
+    " |\n\r"
+    " |\n\r"
+    "_|___\n\r"
+};
 
 
-void print(char text)
+
+
+void draw_hangman(int incorrect) {
+    print_word(HANGMAN_ASCII_ART[incorrect]);
+
+}
+
+void print_single_character(char text)
 {
     printChar(text);
 }
@@ -10,4 +103,9 @@ void print(char text)
 char read(void)
 {
     char input = read_input();
+}
+
+void print_word(const char* text) 
+{
+    printString(text);
 }

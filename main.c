@@ -1,11 +1,12 @@
 #include "main.h"
 #include "user_actions.h"
 #include "logic.h"
+#include "hal.h"
 
 
 void start_game()
 {
-    char selected_word[10];
+    char selected_word[(10*sizeof(char))];// 10 Zeichen langes Wort
     char guessed_word[sizeof(selected_word)];
     char *ptr_to_selected_word = selected_word;
     char *ptr_to_guessed_word = guessed_word;
