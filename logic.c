@@ -12,8 +12,8 @@ void update_wrong_guesses(void){}
 void start_sysTick(void){}
 void SysTick_Handler(void){}
 
-void init_guessed_word(char * guessed_word){
-    for(int i = 0;i<(10*sizeof(char)); i++)
+void init_guessed_word(char * guessed_word, int length){
+    for(int i = 0;i<length-1; i++)
     {
         guessed_word[i]= '_';
     }

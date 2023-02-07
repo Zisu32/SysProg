@@ -6,11 +6,17 @@
 
 void start_game()
 {
-    char selected_word[(10*sizeof(char))];// 10 Zeichen langes Wort
+    char selected_word[] = "ausgewaehltes Wort";
     char guessed_word[sizeof(selected_word)];
+    int size = sizeof(selected_word)/sizeof(selected_word[0]);
     char *ptr_to_selected_word = selected_word;
     char *ptr_to_guessed_word = guessed_word;
-    init_guessed_word(ptr_to_guessed_word);
+    init_guessed_word(ptr_to_guessed_word, size);
+    print_word(ptr_to_guessed_word);
+    while (1)
+    {
+        print_single_character(read());
+    }
 }
 
 void main()
