@@ -13,10 +13,6 @@ void start_game()
     char *ptr_to_guessed_word = guessed_word;
     init_guessed_word(ptr_to_guessed_word, size);
     print_word(ptr_to_guessed_word);
-    while (1)
-    {
-        print_single_character(read());
-    }
 }
 
 void main()
