@@ -1,7 +1,6 @@
 #include "main.h"
 #include "user_actions.h"
 #include "logic.h"
-#include "hal.h"
 
 
 void start_game()

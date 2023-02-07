@@ -1,5 +1,4 @@
 #include "logic.h"
-#include "user_actions.h"
 
 #define MAX_WRONG_TRIES = 11;
 int wrong_guesses =0;
