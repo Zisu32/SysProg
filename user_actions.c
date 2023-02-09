@@ -88,7 +88,8 @@ const char *HANGMAN_ASCII_ART[] = {
 
 
 
-
+/// @brief draws hangman picture
+/// @param incorrect 
 void draw_hangman(int incorrect) {
     print_word(HANGMAN_ASCII_ART[incorrect]);
 
