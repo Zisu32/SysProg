@@ -11,3 +11,4 @@ void update_gui(void);
 void update_wrong_inputs(char lower_case_input);
 void number_to_characters(int number);
 void clear_characters(void);
+void print_stats(void);

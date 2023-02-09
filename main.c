@@ -1,6 +1,7 @@
 #include "main.h"
 #include "user_actions.h"
 #include "logic.h"
+#include "hal.h"
 
 #define MAX_WRONG_TRIES 9
 #define MAX_WORD_LENGTH 23
@@ -26,13 +27,22 @@ int current_position_at_wrong_input = 0;
 char number_as_character[MAX_NUMBER_CHARS] = "000";
 char *ptr_to_number_as_character = number_as_character;
 
-char *ptr_to_input;
+char lower_input;
 void clear_characters()
 {
     for (int i = 0; i < MAX_NUMBER_CHARS - 1; i++)
     {
         number_as_character[i] = '0';
     }
+}
+
+void print_stats(void)
+{
+    print_word(ptr_to_wrong_inputs);
+    number_to_characters(*ptr_to_tries);
+    print_word(number_as_character);
+    number_to_characters(*wrong_guesses);
+    print_word(number_as_character);
 }
 
 /// @brief converts number to character representation
@@ -46,7 +56,6 @@ void number_to_characters(int number)
     {
         while (number_to_convert > 0)
         {
-            ptr_to_number_as_character[array_position] = '0';
             ptr_to_number_as_character[array_position--] = (number_to_convert % 10) + ASCII_CONVERSION_OFFSET;
             number_to_convert /= 10;
         }
@@ -90,23 +99,25 @@ void wrong_guess(int *wrong, char *guessed_word, char lower_case_input)
 {
     *wrong += 1;
     *ptr_to_tries += 1;
-    if (!is_already_in_wrong_inputs(*ptr_to_input, wrong_inputs))
+    if (!is_already_in_wrong_inputs(lower_case_input, wrong_inputs))
     {
         update_wrong_inputs(lower_case_input);
     }
     update_gui();
 }
-
 /// @brief starts game
 void start_game()
 {
+    uint32_t clocks_to_tick = 800000-1;
+    WriteToRegister(0xE000E014, clocks_to_tick);
+    WriteToRegister(0xE000E018, 0);
+    WriteToRegister(0xE000E010, 0x00000007);
     init_guessed_word(guessed_word, size);
-    print_word("enter first letter\r");
-    while (!is_equal(ptr_to_guessed_word, ptr_to_selected_word, size) && *wrong_guesses != MAX_WRONG_TRIES)
+    // print_word("enter first letter\r");
+    while (!is_equal(ptr_to_guessed_word, ptr_to_selected_word, size) && *wrong_guesses < MAX_WRONG_TRIES)
     {
         char input = read();
-        char lower_input = convert_to_lower(input);
-        ptr_to_input = &lower_input;
+        lower_input = convert_to_lower(input);
         if (!is_special_character(lower_input))
         {
             if (is_input_in_word(ptr_to_selected_word, lower_input, size))
@@ -130,13 +141,23 @@ void start_game()
             wrong_guess(wrong_guesses, ptr_to_guessed_word, lower_input);
         }
     }
-    print_word(ptr_to_wrong_inputs);
-    number_to_characters(*ptr_to_tries);
-    print_word(number_as_character);
-    number_to_characters(*wrong_guesses);
-    print_word(number_as_character);
-}
+    WriteToRegister(0xE000E010, 0x00000000);
+    print_stats();
 
+}
+void SysTick_Handler()
+{
+    if (!is_equal(ptr_to_guessed_word, ptr_to_selected_word, size) && *wrong_guesses < MAX_WRONG_TRIES)
+    {
+        wrong_guess(wrong_guesses, ptr_to_guessed_word, '0');
+    }
+    else
+    {
+        print_stats();
+        WriteToRegister(0xE000E010, 0x00000000);
+        for(;;);
+    }
+}
 /// @brief is the main function called by entry_c.c
 void main()
 {
