@@ -3,7 +3,6 @@
 #include <stdio.h>
 
 const char *HANGMAN_ASCII_ART[] = {
-    "\n\n\n\n\n\n\n\n\n",
     " _______\n\r"
     " |/     |\n\r"
     " |       \n\r"
@@ -43,7 +42,7 @@ const char *HANGMAN_ASCII_ART[] = {
     " _______\n\r"
     " |/     |\n\r"
     " |      ()\n\r"
-    " |    \\| \n\r"
+    " |     \\| \n\r"
     " |       \n\r"
     " |       \n\r"
     " |\n\r"
@@ -52,7 +51,7 @@ const char *HANGMAN_ASCII_ART[] = {
     " _______\n\r"
     " |/     |\n\r"
     " |      ()\n\r"
-    " |    \\|/\n\r"
+    " |     \\|/\n\r"
     " |       \n\r"
     " |       \n\r"
     " |\n\r"
@@ -61,7 +60,7 @@ const char *HANGMAN_ASCII_ART[] = {
     " _______\n\r"
     " |/     |\n\r"
     " |      ()\n\r"
-    " |    \\|/\n\r"
+    " |     \\|/\n\r"
     " |      |\n\r"
     " |       \n\r"
     " |\n\r"
@@ -70,7 +69,7 @@ const char *HANGMAN_ASCII_ART[] = {
     " _______\n\r"
     " |/     |\n\r"
     " |      ()\n\r"
-    " |    \\|/\n\r"
+    " |     \\|/\n\r"
     " |      |\n\r"
     " |      /\n\r"
     " |\n\r"
@@ -79,7 +78,7 @@ const char *HANGMAN_ASCII_ART[] = {
     " _______\n\r"
     " |/     |\n\r"
     " |      ()\n\r"
-    " |    \\|/\n\r"
+    " |     \\|/\n\r"
     " |      |\n\r"
     " |     / \\\n\r"
     " |\n\r"
@@ -103,6 +102,7 @@ void print_single_character(char text)
 char read(void)
 {
     char input = read_input();
+    return input;
 }
 
 void print_word(const char* text) 
