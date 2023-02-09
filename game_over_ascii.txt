@@ -1,0 +1,15 @@
+- Spiel auf englisch
+- Start Game / Game Over ASCII Art
+- Hangman ASCII Art
+- Array Fehlversuche
+- Array doppelte Eingabe
+- SysTick nicht dynamisch
+- dynamische Wortauswahl
+	2 Optionen: Zufallsgenerator oder Benutzerauswahl in 10er Blöcken
+- Überprüfung Sonderzeichen 65 - 90, 97 - 122 erlaubt, Rest verboten
+	Was passiert?
+- Benutzerhandbuch / ReadMe
+- Guessed Word Ausgabe in Capslock
+- Counter Versuche
+- Counter Fehleingaben
+- Ausgabe Statistik als ASCII-Art
