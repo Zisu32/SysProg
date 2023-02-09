@@ -38,8 +38,6 @@ bool is_input_in_word(char * selected_word,char input, int size){
     }
 }
 
-void start_sysTick(void){}
-void SysTick_Handler(void){}
 
 void init_guessed_word(char * guessed_word, int length){
     for(int i = 0;i<length-1; i++)
