@@ -15,7 +15,11 @@ target_sources(
   testApp
   PRIVATE
     entry.S
-    entry_c.c )
+    entry_c.c
+    hal.c
+    main.c 
+    logic.c
+    user_actions.c)
 
 target_link_options(
   testApp

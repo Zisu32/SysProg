@@ -9,7 +9,7 @@
  *
  * @brief ARM Cortex-M4 C-Entry Point.
  **/
-
+#include "main.h"
 #include <stdint.h>
 
 const char myConstString[] = "MY CONST STRING";
@@ -33,11 +33,11 @@ static void zeroBss( void );
  **/
 static void copyData( void );
 
-__attribute__((used)) void SystemInit( void )
+void SystemInit( void )
 {
   zeroBss();
   copyData();
-
+  main();
   for (;;);
 }
 
