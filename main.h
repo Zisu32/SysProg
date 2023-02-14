@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "hal.h"
 
 void main(void);
@@ -12,3 +13,7 @@ void update_wrong_inputs(char lower_case_input);
 void number_to_characters(int number);
 void clear_characters(void);
 void print_stats(void);
+void play(void);
+void end(void);
+int lcg_random(void);
+int get_random_in_range(int min, int max);

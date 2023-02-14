@@ -83,16 +83,13 @@ const char *HANGMAN_ASCII_ART[] = {
     " |     / \\\n\r"
     " |\n\r"
     " |\n\r"
-    "_|___\n\r"
-};
-
-
+    "_|___\n\r"};
 
 /// @brief draws hangman picture
-/// @param incorrect 
-void draw_hangman(int incorrect) {
+/// @param incorrect
+void draw_hangman(int incorrect)
+{
     print_word(HANGMAN_ASCII_ART[incorrect]);
-
 }
 
 void print_single_character(char text)
@@ -106,7 +103,7 @@ char read(void)
     return input;
 }
 
-void print_word(const char* text) 
+void print_word(const char *text)
 {
     printString(text);
 }

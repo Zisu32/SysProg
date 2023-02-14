@@ -1,17 +1,50 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 #include "main.h"
 #include "user_actions.h"
 #include "logic.h"
 #include "hal.h"
 
+char *words[] =
+    {
+        "QUACKSALBER",
+        "FRITTENSAUCE",
+        "NICHTSDESTOTROTZ",
+        "MISCHPOKE",
+        "HAFTPFLICHTVERSICHERUNG",
+        "BLUBBERWASSER",
+        "KAFFEEKLATSCH",
+        "OEL",
+        "KAULQUAPPE",
+        "PURZELBAUM",
+        "QUATSCHKOPF",
+        "QUIETSCHFIDEL",
+        "WACKELDACKEL",
+        "WONNEPROPPEN",
+        "AXOLOTL",
+        "GYNAEKOLOGIE",
+        "QUALITATIV",
+        "RHESUSFAKTOR",
+        "XYLOPHON",
+        "TIPP",
+        "OPERNARIE",
+};
+
 #define MAX_WRONG_TRIES 9
 #define MAX_WORD_LENGTH 23
 #define MAX_NUMBER_CHARS 4
 #define ASCII_CONVERSION_OFFSET 48
+#define NUM_WORDS (sizeof(words) / sizeof(words[0]))
+
+#define MIN_NUM 1
+#define MAX_NUM 100
+
 
 int wrong = 0;
 int *wrong_guesses = &wrong;
 
-char selected_word[] = "OEL";
+char selected_word[MAX_WORD_LENGTH];
 char *ptr_to_selected_word = selected_word;
 int size = sizeof(selected_word);
 char guessed_word[sizeof(selected_word)];
@@ -88,7 +121,7 @@ void true_guess(char *ptr_to_guessed_word, char *ptr_to_selected_word, char inpu
 {
     fill_guessed_word(ptr_to_guessed_word, ptr_to_selected_word, input, size);
     *ptr_to_tries += 1;
-    update_gui();
+    // update_gui();
 }
 
 /// @brief calls necessary functions if guess is wrong
@@ -103,17 +136,17 @@ void wrong_guess(int *wrong, char *guessed_word, char lower_case_input)
     {
         update_wrong_inputs(lower_case_input);
     }
-    update_gui();
+    // update_gui();
 }
-/// @brief starts game
-void start_game()
+
+void play()
 {
-    uint32_t clocks_to_tick = 800000-1;
-    WriteToRegister(0xE000E014, clocks_to_tick);
-    WriteToRegister(0xE000E018, 0);
-    WriteToRegister(0xE000E010, 0x00000007);
-    init_guessed_word(guessed_word, size);
-    // print_word("enter first letter\r");
+    int random_number;
+    random_number = (ReadFromRegister(0xE000E014)+12335)%NUM_WORDS;
+    print_word(words[random_number]);
+
+
+
     while (!is_equal(ptr_to_guessed_word, ptr_to_selected_word, size) && *wrong_guesses < MAX_WRONG_TRIES)
     {
         char input = read();
@@ -141,21 +174,38 @@ void start_game()
             wrong_guess(wrong_guesses, ptr_to_guessed_word, lower_input);
         }
     }
-    WriteToRegister(0xE000E010, 0x00000000);
-    print_stats();
+}
 
+void end()
+{
+    WriteToRegister(0xE000E010, 0x00000000);
+    // update_gui();
+    print_stats();
+}
+/// @brief starts game
+void start_game()
+{
+    uint32_t clocks_to_tick = 80000 - 1;
+    WriteToRegister(0xE000E014, clocks_to_tick);
+    WriteToRegister(0xE000E018, 0);
+    WriteToRegister(0xE000E010, 0x00000007);
+    init_guessed_word(guessed_word, size);
+    print_word("enter first letter\r");
+    play();
+    end();
 }
 void SysTick_Handler()
 {
     if (!is_equal(ptr_to_guessed_word, ptr_to_selected_word, size) && *wrong_guesses < MAX_WRONG_TRIES)
     {
-        wrong_guess(wrong_guesses, ptr_to_guessed_word, '0');
+        // update_gui();
+        *ptr_to_tries += 1;
+        *wrong_guesses += 1;
     }
     else
     {
-        print_stats();
-        WriteToRegister(0xE000E010, 0x00000000);
-        for(;;);
+        end();
+        return;
     }
 }
 /// @brief is the main function called by entry_c.c
