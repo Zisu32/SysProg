@@ -10,7 +10,6 @@
 /// @return character as uppercase ascii character
 char toUpper(char low)
 {
-    int ascii = low;
     int ascii_to_upper = low - 32;
     char upper = ascii_to_upper;
     return upper;
@@ -91,7 +90,7 @@ void fill_guessed_word(char *guessed_word, char *selected_word, char input, int 
 bool is_equal(char *guessed, char *selected, int size)
 {
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size-1; i++)
     {
         if (guessed[i] != selected[i])
         {

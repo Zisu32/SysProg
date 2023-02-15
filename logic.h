@@ -8,3 +8,5 @@ bool is_equal(char *guessed, char*selected, int size);
 int update_wrong_guesses(int wrong_guesses);
 bool is_special_character(char input);
 char convert_to_lower(char input);
+char toUpper(char low);
+char convert_to_lower(char input);
