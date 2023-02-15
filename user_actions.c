@@ -3,6 +3,12 @@
 
 #include <stdio.h>
 
+#define ENTER_ASCII_VALUE 13
+#define SMALLEST_UPPER_CASE_ASCII_VALUE 65
+#define HIGHEST_UPPER_CASE_ASCII_VALUE 90
+#define SMALLEST_LOWER_CASE_ASCII_VALUE 97
+#define HIGHEST_LOWER_CASE_ASCII_VALUE 122
+
 const char *HANGMAN_ASCII_ART[] = {
     " ",
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -306,7 +312,7 @@ const char *win_ascii_art[] =
     {
         "\n\r"
         " __   __                       _         _  \n\r"
-        " \\ \\ / ___  _   _    __      _(_)_ __   | | \n\r"
+        " \\ \\ /___  _   _    __      _(_)_ __   | | \n\r"
         "  \\ V / _ \\| | | |   \\ \\ /\\ / | | '_ \\  | | \n\r"
         "   | | (_) | |_| |    \\ V  V /| | | | | |_| \n\r"
         "   |_|\\___/ \\__,_|     \\_/\\_/ |_|_| |_| (_) \n\r"
@@ -336,63 +342,89 @@ const char *stats[] =
         "____________________________________________________\n\r"
         "\n\r"};
 
-/// @brief draws hangman picture
-/// @param incorrect
+/**
+ * @brief drwas hangman at the given position to the console
+ * 
+ * @param incorrect 
+ */
 void draw_hangman(int incorrect)
 {
-    print_guessed_word(HANGMAN_ASCII_ART[incorrect]);
+    print_word(HANGMAN_ASCII_ART[incorrect]);
 }
 
-void fill_tries_array(const char *number_as_character)
+/**
+ * @brief fills the stats array with the given array at the given position
+ * @details position = 1 => over all tries; position = 3 => misentries, function checks if position has one of these two values
+ * @param array_with_number 
+ * @param position 
+ */
+void fill_stats(const char *array_with_number, int position)
 {
-
-    stats[1] = number_as_character;
-}
-void fill_wrong_tries_array(const char *wrong_tries)
-{
-    stats[3] = wrong_tries;
-}
-
-void draw_game_over(void)
-{
-    print_guessed_word(game_over_ascii_art[0]);
-}
-
-void draw_stats(void)
-{
-    for (int i = 0; i < sizeof(stats); i++)
+    if (position == 1 || position == 3)
     {
-        print_guessed_word(stats[i]);
+        stats[position] = array_with_number;
     }
 }
 
-void draw_you_win(void)
+/**
+ * @brief draws game over ascci art to the console
+ */
+void draw_game_over()
 {
-    print_guessed_word(win_ascii_art[0]);
+    print_word(game_over_ascii_art[0]);
 }
 
-void draw_starting_scrren(void)
+/**
+ * @brief draws statistics to the console
+ */
+void draw_stats()
 {
-    print_guessed_word(starting_screen[0]);
+    for (int i = 0; i < sizeof(stats); i++)
+    {
+        print_word(stats[i]);
+    }
 }
 
+/**
+ * @brief draws you win ascci art to the console
+ */
+void draw_you_win()
+{
+    print_word(win_ascii_art[0]);
+}
+
+/**
+ * @brief draws starting screen ascci art to the console
+ */
+void draw_starting_scrren()
+{
+    print_word(starting_screen[0]);
+}
+
+
+/**
+ * @brief Get the word to guess 
+ * @details this function returns the size of the word, because the array is initialized empty with a fixed size, so the sizeof function would return always the same value for this array
+ * @param word_to_guess array which gets filled by this function
+ * @return int length of the given word
+ */
 int get_word_to_guess(char *word_to_guess)
 {
     int position = 0;
     while (1)
     {
-        print_guessed_word("\n\rEnter the word that should be guessed by your friends");
+        print_word("\n\rEnter the word that should be guessed by your friends");
         char input = read();
         int input_ascii_value = input;
-        if (input_ascii_value >= 65 && input_ascii_value <= 90)
+        if (input_ascii_value >= SMALLEST_UPPER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_UPPER_CASE_ASCII_VALUE)
         {
             word_to_guess[position] = input;
         }
-        else if (input_ascii_value >= 97 && input_ascii_value <= 122)
+        else if (input_ascii_value >= SMALLEST_LOWER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_LOWER_CASE_ASCII_VALUE)
         {
             word_to_guess[position] = toUpper(input);
         }
-        else if (input_ascii_value == 13)
+        else if (input_ascii_value  == ENTER_ASCII_VALUE)
         {
             return position;
         }
@@ -400,26 +432,43 @@ int get_word_to_guess(char *word_to_guess)
     }
 }
 
+/**
+ * @brief clears the console
+ * 
+ */
+void clear_screen()
+{
+    print_word("\033[H\033[J");
+}
+
+
+/**
+ * @brief prints single charcter to console by using printChar function
+ * 
+ * @param text 
+ */
 void print_single_character(char text)
 {
     printChar(text);
 }
 
-char read(void)
+/**
+ * @brief reads input from console and returns it
+ * 
+ * @return char 
+ */
+char read()
 {
     char input = read_input();
     return input;
 }
 
-void print_guessed_word(const char *text)
+/**
+ * @brief prints 'String' to the console by using the printString function 
+ * 
+ * @param text 
+ */
+void print_word(const char *text)
 {
     printString(text);
-}
-
-void print_word_to_guess(const char *text, int length)
-{
-    for(int i = 0; i< length-1; i++)
-    {
-        print_single_character(text[i]);
-    }
 }
