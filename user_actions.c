@@ -27,23 +27,12 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -63,6 +52,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -79,22 +69,16 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
     "MMM    MMMMM   MMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMM   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    M   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM       MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
+    "MMM    M  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM     MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -106,21 +90,16 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
-    "MMM    MMMMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    MMM   MMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    M   MMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM       MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMM   MMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    MMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    M  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM     MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -132,28 +111,18 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
-    "MMM    MMMMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    MMM   MMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    M   MMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM       MMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM     MMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMM  MMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMM   MMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    MMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    M  MMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM     MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -167,23 +136,18 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
-    "MMM    MMMMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    MMM   MMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    M   MMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM       MMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM     MMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMM  MMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMM   MMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    MMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    M  MMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM     MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMM         MMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -193,23 +157,18 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
-    "MMM    MMMMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    MMM   MMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    M   MMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM       MMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM     MMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMM  MMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM          MMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       M   MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MM  MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MM  MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMM   MMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    MMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    M  MMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM     MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMM          MMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM   M      MMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM  MM      MMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM MMM      MMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -219,23 +178,18 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
-    "MMM    MMMMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    MMM   MMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    M   MMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM       MMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM     MMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMM  MMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMM            MMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMM   M       M   MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMM  MM       MM  MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMM  MM       MM  MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMM   MMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    MMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    M  MMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM     MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMM          MMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM   M      M   MMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM  MM      MM  MMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM MMM      MMM MMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -245,78 +199,48 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
-    "MMM    MMMMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    MMM   MMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    M   MMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM       MMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM     MMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMM  MMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMM            MMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMM   M       M   MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMM  MM       MM  MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMM  MM       MM  MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM    MMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM   MMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM   MMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM   MMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM   MMMMMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMM   MMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    MMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    M  MMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM     MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMM          MMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM   M      M   MMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM  MM      MM  MMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM MMM      MMM MMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMM   MMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMM   MMMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMM   MMMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMM   MMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
-    "MMM    MMMMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    MMM   MMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM    M   MMMMMMMMMMMMMMMMMMM MMMMMMMMMMMMM\n\r"
-    "MMM       MMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM     MMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMM  MMMMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMM      MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMM            MMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMM   M       M   MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMM  MM       MM  MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMM  MM       MM  MMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMM       MMMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM    M    MMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM   MMM   MMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM   MMM   MMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM   MMM   MMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMM   MMM   MMMMMMMMM\n\r"
-    "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
+    "MMM    MMMMM   MMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    MMM   MMMMMMMMMMMMMMM MMMMMMMMMMMMMMM\n\r"
+    "MMM    M  MMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM     MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMMMM    MMMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMM          MMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM   M      M   MMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM  MM      MM  MMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMM MMM      MMM MMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMMM   M   MMMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMM   MMM   MMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMM   MMM   MMMMMMMMMMM\n\r"
+    "MMM    MMMMMMMMMMMMMMMMM   MMM   MMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"};
-
-const char *game_over_ascii_art[] =
-    {
-        "\n\r"
-        "   ____                         ___                 \n\r"
-        "  / ___| __ _ _ __ ___   ___   / _ \\__   _____ _ __ \n\r"
-        " | |  _ / _` | '_ ` _ \\ / _ \\ | | | \\ \\ / / _ | '__|\n\r"
-        " | |_| | (_| | | | | | |  __/ | |_| |\\ V |  __| |   \n\r"
-        "  \\____|\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|   \n\r"
-        "\n\r"};
-
-const char *win_ascii_art[] =
-    {
-        "\n\r"
-        " __   __                       _         _  \n\r"
-        " \\ \\ /___  _   _    __      _(_)_ __   | | \n\r"
-        "  \\ V / _ \\| | | |   \\ \\ /\\ / | | '_ \\  | | \n\r"
-        "   | | (_) | |_| |    \\ V  V /| | | | | |_| \n\r"
-        "   |_|\\___/ \\__,_|     \\_/\\_/ |_|_| |_| (_) \n\r"
-        "\n\r"};
 
 const char *starting_screen[] =
     {
@@ -327,8 +251,37 @@ const char *starting_screen[] =
         " |  _  | (_| | | | | (_| | |  | | (_| | | | | \n\r"
         " |_| |_|\\__,_|_| |_|\\__, |_|  |_|\\__,_|_| |_| \n\r"
         "                    |___/ Terminal Edition    \n\r"
-        "\n\r"};
+        "_____________________________________________ \n\r"
+        "     _     __________________ \n\r"
+        "   _|_|_  |                  |\n\r"
+        "    ( )  <  Wanna hang out?  |\n\r"
+        "    /|\\   |__________________|\n\r"
+        "     |\n\r"
+        "    / \\  \n\r"};
 
+const char *game_over_ascii_art[] =
+    {"\n\r"
+     "   ____                         ___                 \n\r"
+     "  / ___| __ _ _ __ ___   ___   / _ \\__   _____ _ __ \n\r"
+     " | |  _ / _` | '_ ` _ \\ / _ \\ | | | \\ \\ / / _ | '__|\n\r"
+     " | |_| | (_| | | | | | |  __/ | |_| |\\ V |  __| |   \n\r"
+     "  \\____|\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|   \n\r"
+     "\n\r"
+     "     _      ___________________________\n\r"
+     "   _|_|_  |                          |\n\r"
+     "    ( )  <  You ain't got the hang!  |\n\r"
+     "    \\|/   | F§%$ You D&%§&$§$%!!!!|\n\r"
+     "     |    |__________________________|\n\r"
+     "    / \\                               \n\r"};
+
+const char *win_ascii_art[] =
+    {
+        "                                                 _    ____________________ \n\r"
+        " __   __                       _         _     _|_|_  |                    |\n\r"
+        " \\ \\ / ___  _   _    __      _(_)_ __   | |     ( )  <  We did it! Cheers! |\n\r"
+        "  \\ V / _ \\| | | |   \\ \\ /\\ / | | '_ \\  | |     \\|/   |____________________|\n\r"
+        "   | | (_) | |_| |    \\ V  V /| | | | | |_|      |                          \n\r"
+        "   |_|\\___/ \\__,_|     \\_/\\_/ |_|_| |_| (_)     / \\                         \n\r"};
 const char *stats[] =
     {
         "____________________________________________________\n\r"
@@ -344,8 +297,8 @@ const char *stats[] =
 
 /**
  * @brief drwas hangman at the given position to the console
- * 
- * @param incorrect 
+ *
+ * @param incorrect
  */
 void draw_hangman(int incorrect)
 {
@@ -355,8 +308,8 @@ void draw_hangman(int incorrect)
 /**
  * @brief fills the stats array with the given array at the given position
  * @details position = 1 => over all tries; position = 3 => misentries, function checks if position has one of these two values
- * @param array_with_number 
- * @param position 
+ * @param array_with_number
+ * @param position
  */
 void fill_stats(const char *array_with_number, int position)
 {
@@ -401,9 +354,8 @@ void draw_starting_scrren()
     print_word(starting_screen[0]);
 }
 
-
 /**
- * @brief Get the word to guess 
+ * @brief Get the word to guess
  * @details this function returns the size of the word, because the array is initialized empty with a fixed size, so the sizeof function would return always the same value for this array
  * @param word_to_guess array which gets filled by this function
  * @return int length of the given word
@@ -411,9 +363,9 @@ void draw_starting_scrren()
 int get_word_to_guess(char *word_to_guess)
 {
     int position = 0;
+    print_word("\n\rEnter the word that should be guessed by your friends");
     while (1)
     {
-        print_word("\n\rEnter the word that should be guessed by your friends");
         char input = read();
         int input_ascii_value = input;
         if (input_ascii_value >= SMALLEST_UPPER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_UPPER_CASE_ASCII_VALUE)
@@ -424,7 +376,7 @@ int get_word_to_guess(char *word_to_guess)
         {
             word_to_guess[position] = toUpper(input);
         }
-        else if (input_ascii_value  == ENTER_ASCII_VALUE)
+        else if (input_ascii_value == ENTER_ASCII_VALUE)
         {
             return position;
         }
@@ -434,18 +386,17 @@ int get_word_to_guess(char *word_to_guess)
 
 /**
  * @brief clears the console
- * 
+ *
  */
 void clear_screen()
 {
     print_word("\033[H\033[J");
 }
 
-
 /**
  * @brief prints single charcter to console by using printChar function
- * 
- * @param text 
+ *
+ * @param text
  */
 void print_single_character(char text)
 {
@@ -454,8 +405,8 @@ void print_single_character(char text)
 
 /**
  * @brief reads input from console and returns it
- * 
- * @return char 
+ *
+ * @return char
  */
 char read()
 {
@@ -464,9 +415,9 @@ char read()
 }
 
 /**
- * @brief prints 'String' to the console by using the printString function 
- * 
- * @param text 
+ * @brief prints 'String' to the console by using the printString function
+ *
+ * @param text
  */
 void print_word(const char *text)
 {

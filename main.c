@@ -115,7 +115,7 @@ void wrong_guess(char lower_case_input)
  */
 void get_guesss()
 {
-    while (!is_equal(guessed_word, word_to_guess, *ptr_to_size) && *wrong_guesses < MAX_WRONG_TRIES)
+    while (!is_equal(guessed_word, word_to_guess, *ptr_to_size) && *wrong_guesses < MAX_WRONG_TRIES-1)
     {
         char input = read();
         start_sysTick();
@@ -152,7 +152,7 @@ void get_guesss()
 void handle_no_guesses_left()
 {
     stop_sysTick();
-    if (*wrong_guesses == MAX_WRONG_TRIES)
+    if (*wrong_guesses == MAX_WRONG_TRIES-1)
     {
         finish_game(0);
     }
@@ -179,8 +179,7 @@ void play()
  */
 void start_game()
 {
-    *ptr_to_size = get_word_to_guess(word_to_guess);
-    *ptr_to_size += 1;
+    *ptr_to_size = get_word_to_guess(word_to_guess)+1;
     init_guessed_word(guessed_word, *ptr_to_size);
     play();
 }
@@ -205,6 +204,7 @@ void fill_arrays_for_statistics()
 void finish_game(int result)
 {
     clear_screen();
+    clear_screen();
     if (result == 1)
     {
         draw_you_win();
@@ -215,11 +215,11 @@ void finish_game(int result)
     }
     fill_arrays_for_statistics();
     draw_stats();
-    if (result == 0)
-    {
-        print_word("Following word should have been guessed");
-        print_word(word_to_guess);
-    }
+    // if (result == 0)
+    // {
+    //     print_word("Following word should have been guessed");
+    //     print_word(word_to_guess);
+    // }
     return;
 }
 
