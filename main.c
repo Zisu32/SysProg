@@ -10,11 +10,16 @@
 #define MAX_WORD_LENGTH 21
 #define MAX_NUMBER_CHARS 4
 #define ASCII_CONVERSION_OFFSET 48
+#define UPPER_CASE_P 80
+#define LOWER_CASE_P 112
+#define UPPER_CASE_Q 81
+#define LOWER_CASE_Q 113
+
 
 int wrong = 0;
 int *wrong_guesses = &wrong;
 
-char word_to_guess[MAX_WORD_LENGTH] ;
+char word_to_guess[MAX_WORD_LENGTH];
 char guessed_word[MAX_WORD_LENGTH];
 
 int size = 0;
@@ -27,6 +32,14 @@ int current_position_at_wrong_input = 0;
 
 char tries_as_characters[MAX_NUMBER_CHARS] = "000";
 char wrong_guesses_as_character[MAX_NUMBER_CHARS] = "000";
+
+void remove_characters_from_array(char *array, int start, int end)
+{
+    for(int i = start; i <end; i++)
+    {
+        array[i] = '\0';
+    }
+}
 
 /**
  * @brief restes given array to inital "000" value to prevent wrong outputs by previous convertions
@@ -180,7 +193,7 @@ void play()
 void start_game()
 {
     *ptr_to_size = get_word_to_guess(word_to_guess)+1;
-    init_guessed_word(guessed_word, *ptr_to_size);
+    init_array(guessed_word, *ptr_to_size);
     play();
 }
 
@@ -215,12 +228,14 @@ void finish_game(int result)
     }
     fill_arrays_for_statistics();
     draw_stats();
-    // if (result == 0)
-    // {
-    //     print_word("Following word should have been guessed");
-    //     print_word(word_to_guess);
-    // }
-    return;
+    draw_play_again();
+    print_word("Enter p/P to play again");
+    int decision_asccii_value = read();
+    if(decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
+    {
+        main();
+    }
+
 }
 
 /**
@@ -263,7 +278,17 @@ void SysTick_Handler()
     }
 }
 
-
+/**
+ * @brief resets dynamic filled values and arrays
+ * 
+ */
+void reset_everything()
+{
+    tries = 0;
+    wrong = 0;
+    remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
+    remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);
+}
 
 
 /**
@@ -272,6 +297,8 @@ void SysTick_Handler()
  */
 void main()
 {
+    reset_everything();
+    clear_screen();
     draw_starting_scrren();
     print_word("Press s/S to start!");
     char input = read();

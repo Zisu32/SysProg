@@ -58,11 +58,11 @@ bool is_input_in_word(char *selected_word, char input, int size)
  * @param guessed_word word that's filled with the users input
  * @param length limits the number of steps are made
  */
-void init_guessed_word(char *guessed_word, int length)
+void init_array(char * array, int length)
 {
     for (int i = 0; i < length - 1; i++)
     {
-        guessed_word[i] = '_';
+        array[i] = '_';
     }
 }
 

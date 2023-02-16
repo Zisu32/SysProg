@@ -295,6 +295,16 @@ const char *stats[] =
         "____________________________________________________\n\r"
         "\n\r"};
 
+const char *play_again_ascii_art []=
+{
+    "      __    _____                                _          __       \n\r"     
+"      \\ \\  |_   __ __ _   _     __ _  __ _  __ _(_)_ __    / /       \n\r"     
+"  =====\\ \\   | || '__| | | |   / _` |/ _` |/ _` | | '_ \\  / /=====   \n\r" 
+"  =====/ /   | || |  | |_| |  | (_| | (_| | (_| | | | | | \\ \\=====   \n\r"
+"      /_/    |_||_|   \\__, |   \\__,_|\\__, |\\__,_|_|_| |_|  \\_\\       \n\r"     
+"                      |___/          |___/                           \n\r" 
+};
+
 /**
  * @brief drwas hangman at the given position to the console
  *
@@ -317,6 +327,11 @@ void fill_stats(const char *array_with_number, int position)
     {
         stats[position] = array_with_number;
     }
+}
+
+void draw_play_again(void)
+{
+    print_word(play_again_ascii_art[0]);
 }
 
 /**
