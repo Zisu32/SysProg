@@ -379,6 +379,7 @@ int get_word_to_guess(char *word_to_guess)
 {
     int position = 0;
     print_word("\n\rEnter the word that should be guessed by your friends");
+    print_word("Beachten Sie, dass die maximale Wortlänge 20 beträgt. \n\r Umlaute als oe, ae, ue eingeben");
     while (1)
     {
         char input = read();

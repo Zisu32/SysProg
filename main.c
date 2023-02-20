@@ -15,15 +15,12 @@
 #define UPPER_CASE_Q 81
 #define LOWER_CASE_Q 113
 
-
 int wrong = 0;
-int *wrong_guesses = &wrong;
 
 char word_to_guess[MAX_WORD_LENGTH];
 char guessed_word[MAX_WORD_LENGTH];
 
 int size = 0;
-int *ptr_to_size = &size;
 
 int tries = 0;
 
@@ -35,7 +32,7 @@ char wrong_guesses_as_character[MAX_NUMBER_CHARS] = "000";
 
 void remove_characters_from_array(char *array, int start, int end)
 {
-    for(int i = start; i <end; i++)
+    for (int i = start; i < end; i++)
     {
         array[i] = '\0';
     }
@@ -43,8 +40,8 @@ void remove_characters_from_array(char *array, int start, int end)
 
 /**
  * @brief restes given array to inital "000" value to prevent wrong outputs by previous convertions
- * 
- * @param array_to_reset 
+ *
+ * @param array_to_reset
  */
 void reset_number_as_character_array(char *array_to_reset)
 {
@@ -55,9 +52,9 @@ void reset_number_as_character_array(char *array_to_reset)
 }
 /**
  * @brief converts the given number to an charcter and fills the gien array with the converted number
- * 
- * @param number 
- * @param array_to_fill 
+ *
+ * @param number
+ * @param array_to_fill
  */
 void number_to_characters(int number, char *array_to_fill)
 {
@@ -76,7 +73,7 @@ void number_to_characters(int number, char *array_to_fill)
 
 /**
  * @brief adds input to the wrong_inputs array if user input isn't part of the word_to_guess array, or it's already gueesed
- * 
+ *
  */
 void update_wrong_inputs(char lower_case_input)
 {
@@ -86,30 +83,30 @@ void update_wrong_inputs(char lower_case_input)
 
 /**
  * @brief updates screen to the newest game progress
- * 
+ *
  */
 void update_gui()
 {
     clear_screen();
     print_word(guessed_word);
-    draw_hangman(*wrong_guesses);
+    draw_hangman(wrong);
     print_word(wrong_inputs);
 }
 /**
  * @brief handles input if it's in the word_to_guess array
- * 
+ *
  */
 void true_guess(char input)
 {
-    fill_guessed_word(guessed_word, word_to_guess, input, *ptr_to_size);
+    fill_guessed_word(guessed_word, word_to_guess, input, size);
     tries += 1;
     update_gui();
 }
 
 /**
  * @brief handles input if it is not part of the word
- * 
- * @param lower_case_input 
+ *
+ * @param lower_case_input
  */
 void wrong_guess(char lower_case_input)
 {
@@ -124,20 +121,20 @@ void wrong_guess(char lower_case_input)
 
 /**
  * @brief as long the word isn't guessed fully and there are still tries left it gets a new input and processes it
- * 
+ *
  */
 void get_guesss()
 {
-    while (!is_equal(guessed_word, word_to_guess, *ptr_to_size) && *wrong_guesses < MAX_WRONG_TRIES-1)
+    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES - 1)
     {
         char input = read();
         start_sysTick();
         char lower_input = convert_to_lower(input);
         if (!is_special_character(lower_input))
         {
-            if (is_input_in_word(word_to_guess, lower_input, *ptr_to_size))
+            if (is_input_in_word(word_to_guess, lower_input, size))
             {
-                if (!is_already_guessed(lower_input, guessed_word, *ptr_to_size))
+                if (!is_already_guessed(lower_input, guessed_word, size))
                 {
                     true_guess(lower_input);
                 }
@@ -146,7 +143,7 @@ void get_guesss()
                     wrong_guess(lower_input);
                 }
             }
-            else if (!is_input_in_word(word_to_guess, lower_input, *ptr_to_size))
+            else if (!is_input_in_word(word_to_guess, lower_input, size))
             {
                 wrong_guess(lower_input);
             }
@@ -160,16 +157,16 @@ void get_guesss()
 
 /**
  * @brief is called when the word is guessed or too many wrong inputs were made
- * 
+ *
  */
 void handle_no_guesses_left()
 {
     stop_sysTick();
-    if (*wrong_guesses == MAX_WRONG_TRIES-1)
+    if (wrong == MAX_WRONG_TRIES - 1)
     {
         finish_game(0);
     }
-    else if (is_equal(guessed_word, word_to_guess, *ptr_to_size))
+    else if (is_equal(guessed_word, word_to_guess, size))
     {
         finish_game(1);
     }
@@ -177,7 +174,7 @@ void handle_no_guesses_left()
 
 /**
  * @brief calls the functions for the gameplay
- * 
+ *
  */
 void play()
 {
@@ -188,18 +185,18 @@ void play()
 
 /**
  * @brief starts the game by getting the word to guess and initializing the necessary arrays
- * 
+ *
  */
 void start_game()
 {
-    *ptr_to_size = get_word_to_guess(word_to_guess)+1;
-    init_array(guessed_word, *ptr_to_size);
+    size = get_word_to_guess(word_to_guess) + 1;
+    init_array(guessed_word, size);
     play();
 }
 
 /**
- * @brief fills the stats array with the number of tries and the number of mistakes 
- * 
+ * @brief fills the stats array with the number of tries and the number of mistakes
+ *
  */
 void fill_arrays_for_statistics()
 {
@@ -211,7 +208,7 @@ void fill_arrays_for_statistics()
 
 /**
  * @brief draws the final results to the console
- * 
+ *
  * @param result 0 => loose, 1 => win
  */
 void finish_game(int result)
@@ -228,19 +225,22 @@ void finish_game(int result)
     }
     fill_arrays_for_statistics();
     draw_stats();
-    draw_play_again();
+    if (result == 0)
+    {
+        draw_play_again();
+    }
     print_word("Enter p/P to play again");
     int decision_asccii_value = read();
-    if(decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
+    if (decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
     {
+        clear_screen();
         main();
     }
-
 }
 
 /**
  * @brief starts the SysTick Timer
- * 
+ *
  */
 void start_sysTick()
 {
@@ -252,7 +252,7 @@ void start_sysTick()
 
 /**
  * @brief stops the SysTick if the game is over
- * 
+ *
  */
 void stop_sysTick()
 {
@@ -261,11 +261,11 @@ void stop_sysTick()
 
 /**
  * @brief says what to do if the SysTick Timer went down to 0
- * 
+ *
  */
 void SysTick_Handler()
 {
-    if (!is_equal(guessed_word, word_to_guess, *ptr_to_size) && *wrong_guesses < MAX_WRONG_TRIES)
+    if (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES)
     {
         update_gui();
         tries += 1;
@@ -280,7 +280,7 @@ void SysTick_Handler()
 
 /**
  * @brief resets dynamic filled values and arrays
- * 
+ *
  */
 void reset_everything()
 {
@@ -288,12 +288,12 @@ void reset_everything()
     wrong = 0;
     remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);
+    remove_characters_from_array(wrong_inputs, 0, sizeof(wrong_inputs));
 }
-
 
 /**
  * @brief is the main function called by entry_c.c
- * 
+ *
  */
 void main()
 {
