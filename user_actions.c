@@ -267,7 +267,7 @@ const char *game_over_ascii_art[] =
      " | |_| | (_| | | | | | |  __/ | |_| |\\ V |  __| |   \n\r"
      "  \\____|\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|   \n\r"
      "\n\r"
-     "     _      ___________________________\n\r"
+     "     _     ___________________________\n\r"
      "   _|_|_  |                          |\n\r"
      "    ( )  <  You ain't got the hang!  |\n\r"
      "    \\|/   | F§%$ You D&%§&$§$%!!!!|\n\r"
@@ -379,7 +379,7 @@ int get_word_to_guess(char *word_to_guess)
 {
     int position = 0;
     print_word("\n\rEnter the word that should be guessed by your friends");
-    print_word("Beachten Sie, dass die maximale Wortlänge 20 beträgt. \n\r Umlaute als oe, ae, ue eingeben");
+    print_word("Please keep in mind to use ue, oe, ae");
     while (1)
     {
         char input = read();
