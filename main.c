@@ -88,8 +88,8 @@ void update_wrong_inputs(char lower_case_input)
 void update_gui()
 {
     clear_screen();
-    print_word(guessed_word);
     draw_hangman(wrong);
+    print_word(guessed_word);
     print_word(wrong_inputs);
 }
 /**
@@ -178,7 +178,7 @@ void handle_no_guesses_left()
  */
 void play()
 {
-    print_word("enter first letter\r");
+    print_word("Enter first letter\r");
     get_guesss();
     handle_no_guesses_left();
 }
@@ -229,12 +229,16 @@ void finish_game(int result)
     {
         draw_play_again();
     }
+
     print_word("Enter p/P to play again");
     int decision_asccii_value = read();
     if (decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
     {
         clear_screen();
         main();
+    }
+    else {
+        draw_end();
     }
 }
 
@@ -299,7 +303,7 @@ void main()
 {
     reset_everything();
     clear_screen();
-    draw_starting_scrren();
+    draw_starting_screen();
     print_word("Press s/S to start!");
     char input = read();
     while (input != 's' && input != 'S')
