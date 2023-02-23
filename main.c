@@ -94,6 +94,19 @@ void update_gui()
     draw_hangman(wrong);
     print_word(wrong_inputs);
 }
+
+void update_gui_timer()
+{
+    wrong++;
+    tries++;
+    clear_screen();
+    print_word("called");
+    print_word(guessed_word);
+    draw_hangman(wrong);
+    print_word(wrong_inputs);
+    if(wrong == MAX_WRONG_TRIES-1)
+        finish_game(0);
+}
 /**
  * @brief handles input if it's in the word_to_guess array
  *
@@ -126,18 +139,16 @@ void wrong_guess(char lower_case_input)
  *
  */
 void get_guesss()
-{start_sysTick();
-    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES-1)
+{
+    start_sysTick();
+    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES - 1)
     {
         char input = read_input_with_interrupt();
         if (input == defineSysTickDown)
         {
-            wrong++;
-            tries++;
-            update_gui();
             print_word("timer expired");
         }
-        else
+        else if (input != defineSysTickDown)
         {
             char lower_input = convert_to_lower(input);
             if (!is_special_character(lower_input))
@@ -172,7 +183,7 @@ void get_guesss()
  */
 void handle_no_guesses_left()
 {
-    if (wrong +1 == MAX_WRONG_TRIES)
+    if (wrong + 1 == MAX_WRONG_TRIES)
     {
         wrong++;
         tries++;
@@ -224,7 +235,7 @@ void fill_arrays_for_statistics()
  * @param result 0 => loose, 1 => win
  */
 void finish_game(int result)
-{
+{stop_sysTick();
     clear_screen();
     if (result == 1)
     {

@@ -1,5 +1,5 @@
 #include "hal.h"
-#include "user_actions.h"
+#include "main.h"
 // Specific implementation for ARM-Cortex M4 here:
 
 int sysTickCounter = 0;
@@ -57,14 +57,6 @@ char read_input_with_interrupt(void)
   // uint32_t DataRegister;
   // WriteToRegister(0x4000C000 + 0x00, 0000);
 
-  char return_value = 43;
-  if (sysTickCounter >= 10000)
-  {
-    sysTickCounter = 0;
-    return return_value;
-  }
-  else
-  {
     uint32_t DataRegister;
     WriteToRegister(0x4000C000 + 0x00, 0000);
     // FE = "FIFO EMPTY"
@@ -77,7 +69,6 @@ char read_input_with_interrupt(void)
 
     DataRegister = DataRegister & 0x000000FF; // sanitize
     return (char)DataRegister;
-  }
 }
 
 char read_input(void)
@@ -127,9 +118,9 @@ uint32_t ReadFromRegister(uint32_t address)
 void SysTick_Handler()
 {
   sysTickCounter++;
-  // if (sysTickCounter <= 10)
-  // {
-  //   print_word("Sys\n\r");
-
-  // }
+  if (sysTickCounter >= 10000)
+  {
+    sysTickCounter = 0;
+    update_gui_timer();
+  }
 }
