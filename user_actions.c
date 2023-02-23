@@ -267,7 +267,7 @@ const char *game_over_ascii_art[] =
      " | |_| | (_| | | | | | |  __/ | |_| |\\ V |  __| |   \n\r"
      "  \\____|\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|   \n\r"
      "\n\r"
-     "     _     ___________________________\n\r"
+     "     _     __________________________\n\r"
      "   _|_|_  |                          |\n\r"
      "    ( )  <  You ain't got the hang!  |\n\r"
      "    \\|/   | F§%$ You D&%§&$§$%!!!!|\n\r"
@@ -304,6 +304,16 @@ const char *play_again_ascii_art []=
 "      /_/    |_||_|   \\__, |   \\__,_|\\__, |\\__,_|_|_| |_|  \\_\\       \n\r"     
 "                      |___/          |___/                           \n\r" 
 };
+
+const char *end_game_ascii_art[] =
+        {
+                " ______           _           _     __________________\n\r"
+                "|  ____|         | |        _|_|_  |                  |\n\r"
+                "| |__   _ __   __| |         ( )  <      Cheerio!     |\n\r"
+                "|  __| | '_ \\ / _` |         \\|/   |__________________|\n\r"
+                "| |____| | | | (_| |          |\n\r"
+                "|______|_| |_|\\__,_|         / \\  \n\r"
+        };
 
 /**
  * @brief drwas hangman at the given position to the console
@@ -362,9 +372,18 @@ void draw_you_win()
 }
 
 /**
+ * @brief draws you win ascci art to the console
+ */
+
+void draw_end()
+{
+    print_word(end_game_ascii_art[0]);
+}
+
+/**
  * @brief draws starting screen ascci art to the console
  */
-void draw_starting_scrren()
+void draw_starting_screen()
 {
     print_word(starting_screen[0]);
 }
@@ -380,6 +399,7 @@ int get_word_to_guess(char *word_to_guess)
     int position = 0;
     print_word("\n\rEnter the word that should be guessed by your friends");
     print_word("Please keep in mind to use ue, oe, ae");
+    print_word("Press Enter to confirm your word");
     while (1)
     {
         char input = read();
