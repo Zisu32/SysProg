@@ -248,7 +248,9 @@ void finish_game(int result)
     fill_arrays_for_statistics();
     draw_stats();
     if (result == 0)
-    {
+    {   
+        print_word("Following word should have been guesse:\n\r");
+        print_word(word_to_guess);
         draw_play_again();
     }
     print_word("Enter p/P to play again");
