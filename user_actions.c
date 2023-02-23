@@ -273,6 +273,7 @@ const char *game_over_ascii_art[] =
      "    \\|/   | F§%$ You D&%§&$§$%!!!!|\n\r"
      "     |    |__________________________|\n\r"
      "    / \\                               \n\r"};
+     
 
 const char *win_ascii_art[] =
     {
@@ -347,7 +348,7 @@ void draw_game_over()
  */
 void draw_stats()
 {
-    for (int i = 0; i < sizeof(stats); i++)
+    for (int i = 0; i < (sizeof(stats)/sizeof(stats[0])); i++)
     {
         print_word(stats[i]);
     }
@@ -430,6 +431,12 @@ char read()
     return input;
 }
 
+char read_with_interupt(void)
+{
+    char input = read_input_with_interrupt();
+    return input;
+}
+
 /**
  * @brief prints 'String' to the console by using the printString function
  *
@@ -439,3 +446,4 @@ void print_word(const char *text)
 {
     printString(text);
 }
+

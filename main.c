@@ -24,6 +24,8 @@ int size = 0;
 
 int tries = 0;
 
+char defineSysTickDown = 43;
+
 char wrong_inputs[MAX_WRONG_TRIES];
 int current_position_at_wrong_input = 0;
 
@@ -124,33 +126,42 @@ void wrong_guess(char lower_case_input)
  *
  */
 void get_guesss()
-{
-    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES - 1)
+{start_sysTick();
+    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES-1)
     {
-        char input = read();
-        start_sysTick();
-        char lower_input = convert_to_lower(input);
-        if (!is_special_character(lower_input))
+        char input = read_input_with_interrupt();
+        if (input == defineSysTickDown)
         {
-            if (is_input_in_word(word_to_guess, lower_input, size))
+            wrong++;
+            tries++;
+            update_gui();
+            print_word("timer expired");
+        }
+        else
+        {
+            char lower_input = convert_to_lower(input);
+            if (!is_special_character(lower_input))
             {
-                if (!is_already_guessed(lower_input, guessed_word, size))
+                if (is_input_in_word(word_to_guess, lower_input, size))
                 {
-                    true_guess(lower_input);
+                    if (!is_already_guessed(lower_input, guessed_word, size))
+                    {
+                        true_guess(lower_input);
+                    }
+                    else
+                    {
+                        wrong_guess(lower_input);
+                    }
                 }
-                else
+                else if (!is_input_in_word(word_to_guess, lower_input, size))
                 {
                     wrong_guess(lower_input);
                 }
             }
-            else if (!is_input_in_word(word_to_guess, lower_input, size))
+            if (is_special_character(lower_input))
             {
                 wrong_guess(lower_input);
             }
-        }
-        if (is_special_character(lower_input))
-        {
-            wrong_guess(lower_input);
         }
     }
 }
@@ -161,9 +172,10 @@ void get_guesss()
  */
 void handle_no_guesses_left()
 {
-    stop_sysTick();
-    if (wrong == MAX_WRONG_TRIES - 1)
+    if (wrong +1 == MAX_WRONG_TRIES)
     {
+        wrong++;
+        tries++;
         finish_game(0);
     }
     else if (is_equal(guessed_word, word_to_guess, size))
@@ -214,7 +226,6 @@ void fill_arrays_for_statistics()
 void finish_game(int result)
 {
     clear_screen();
-    clear_screen();
     if (result == 1)
     {
         draw_you_win();
@@ -233,7 +244,6 @@ void finish_game(int result)
     int decision_asccii_value = read();
     if (decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
     {
-        clear_screen();
         main();
     }
 }
@@ -244,7 +254,8 @@ void finish_game(int result)
  */
 void start_sysTick()
 {
-    uint32_t clocks_to_tick = 8000000 - 1;
+    WriteToRegister(0xE000E014, 0x000);
+    uint32_t clocks_to_tick = 80000 - 1;
     WriteToRegister(0xE000E014, clocks_to_tick);
     WriteToRegister(0xE000E018, 0);
     WriteToRegister(0xE000E010, 0x00000007);
@@ -257,25 +268,6 @@ void start_sysTick()
 void stop_sysTick()
 {
     WriteToRegister(0xE000E010, 0x00000000);
-}
-
-/**
- * @brief says what to do if the SysTick Timer went down to 0
- *
- */
-void SysTick_Handler()
-{
-    if (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES)
-    {
-        update_gui();
-        tries += 1;
-        wrong += 1;
-    }
-    else
-    {
-        finish_game(0);
-        return;
-    }
 }
 
 /**
