@@ -1,8 +1,11 @@
-# Arm Cortex-M4 Base Project
+ ![Logo Hangman Terminal Edition](Logo.png)                 
+
+# Deployment
+## Arm Cortex-M4 Base Project
 Example Workspace für die Vorlesung Systemnahe Programmierung 2 an der
 DHWB Ravensburg.
 
-## Arm Documentation
+### Arm Documentation
  - [Cortex M4 Startseite](https://developer.arm.com/Processors/Cortex-M4)
  - [ARMv7-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0403/latest/)
  - [Cortex-M4 Devices Generic User Guide](https://developer.arm.com/documentation/dui0553/b/?lang=en)
@@ -11,12 +14,12 @@ DHWB Ravensburg.
  - [GNU Assembler Documentation](https://sourceware.org/binutils/docs-2.40/as/index.html)
  - [GNU Linker Documentation](https://sourceware.org/binutils/docs-2.40/ld/index.html)
 
-## Prerequisites
+### Prerequisites
  - CMake
  - Arm GCC Cross-Compiler
  - Wind River Simics
 
-## Building
+### Building
 Auschecken des Quellcodes:
 `git clone https://github.com/infohoschie/Arm-Cortex-M4-Base.git`
 
@@ -25,17 +28,18 @@ Erstellen des Build:
    ```cmake --preset arm-cortex-m4```
  - Klassisch:
    ```cmake -B build -S . -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=toolchain.cmake```
+ - Caro:
+   ```cmake --preset arm-cortex-m4 -G "Unix Makefiles"```
 
 Bauen:
  - Mittels CMake Presets:
-  ```cmake --build --preset arm-cortex-m4```
+   ```cmake --build --preset arm-cortex-m4```
  - Klassisch:
-   ```cmake --build build```
-   
-   
+   ```cmake --build build .```
+      
 Neue .c files immer in CmakeList.txt einfügen unter "target_sources"
  
-## Running in Wind River Simics
+### Running in Wind River Simics
 Install Wind River Simics (Currently only for Windows and Linux available)
 
 **Note**
@@ -57,21 +61,37 @@ Modify *Parameters*: *Runtime* -> *demo_image* set to built binary
 Select *Start as debug session*
 
 
+
 # Project Conventions
 
 ## IDEs
 
-### Jetbrains CLion
-Das Projekt kann direkt in der IDE geöffnet (ausgechecked) werden.
-Die CMake Presets werden direkt als build-target angeboten
+ - Jetbrains CLion
+   Das Projekt kann direkt in der IDE geöffnet (ausgechecked) werden.
+   Die CMake Presets werden direkt als build-target angeboten
 
-### Visual Studio Code
-TODO:
- - [ ] Plugins
- - [ ] Configuration
+ - Visual Studio Code
 
 ## Agreements
-- Language: English
+ - Language: English
 
 ## Tools
-- ASCII Art: http://www.patorjk.com/software/taag/#p=display&h=3&f=Standard&t=You%20%20%20win%20!%0A%0A
+ - ASCII Art: http://www.patorjk.com/software/taag/#p=display&h=3&f=Standard&t=You%20%20%20win%20!%0A%0A
+ - Font: Big
+
+
+
+# User Manual
+
+## Start
+Start the simics project, press F6 and switch to the serial console. Press "s" or "S" to start the game.
+
+You can now type a word that you want your friends to guess. Of course, your word won't show so that your friends won't see it. Remember not to use special characters such as "ä, ö, ü" or punctuation characters. Don't care about case-sensitivity, lower-case letters and capital letters are fine. To confirm your word, press "Enter".
+
+## Game
+Now the player is in turn. Type in the letters you expect in the word. You'll be shown the letters you tried underneath the graphic and the letters you already guessed correct.
+
+TODO Rundenzeit
+
+## End
+Once you win or loose, press "p" or "P" to start a new game.

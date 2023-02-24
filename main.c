@@ -1,165 +1,310 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 #include "main.h"
 #include "user_actions.h"
 #include "logic.h"
 #include "hal.h"
 
-#define MAX_WRONG_TRIES 9
-#define MAX_WORD_LENGTH 23
+#define MAX_WRONG_TRIES 11
+#define MAX_WORD_LENGTH 21
 #define MAX_NUMBER_CHARS 4
 #define ASCII_CONVERSION_OFFSET 48
+#define UPPER_CASE_P 80
+#define LOWER_CASE_P 112
+#define UPPER_CASE_Q 81
+#define LOWER_CASE_Q 113
 
 int wrong = 0;
-int *wrong_guesses = &wrong;
 
-char selected_word[] = "OEL";
-char *ptr_to_selected_word = selected_word;
-int size = sizeof(selected_word);
-char guessed_word[sizeof(selected_word)];
-char *ptr_to_guessed_word = guessed_word;
+char word_to_guess[MAX_WORD_LENGTH];
+char guessed_word[MAX_WORD_LENGTH];
+
+int size = 0;
 
 int tries = 0;
-int *ptr_to_tries = &tries;
 
 char wrong_inputs[MAX_WRONG_TRIES];
-char *ptr_to_wrong_inputs = wrong_inputs;
 int current_position_at_wrong_input = 0;
 
-char number_as_character[MAX_NUMBER_CHARS] = "000";
-char *ptr_to_number_as_character = number_as_character;
+char tries_as_characters[MAX_NUMBER_CHARS] = "000";
+char wrong_guesses_as_character[MAX_NUMBER_CHARS] = "000";
+char wordToGuessLenght[MAX_NUMBER_CHARS] = "000";
 
-char lower_input;
-void clear_characters()
+void remove_characters_from_array(char *array, int start, int end)
 {
-    for (int i = 0; i < MAX_NUMBER_CHARS - 1; i++)
+    for (int i = start; i < end; i++)
     {
-        number_as_character[i] = '0';
+        array[i] = '\0';
     }
 }
 
-void print_stats(void)
+/**
+ * @brief restes given array to inital "000" value to prevent wrong outputs by previous convertions
+ *
+ * @param array_to_reset
+ */
+void reset_number_as_character_array(char *array_to_reset)
 {
-    print_word(ptr_to_wrong_inputs);
-    number_to_characters(*ptr_to_tries);
-    print_word(number_as_character);
-    number_to_characters(*wrong_guesses);
-    print_word(number_as_character);
+    for (int i = 0; i < MAX_NUMBER_CHARS - 1; i++)
+    {
+        array_to_reset[i] = '0';
+    }
 }
-
-/// @brief converts number to character representation
-/// @param number number to be converted
-void number_to_characters(int number)
+/**
+ * @brief converts the given number to an charcter and fills the gien array with the converted number
+ *
+ * @param number
+ * @param array_to_fill
+ */
+void number_to_characters(int number, char *array_to_fill)
 {
-    clear_characters();
+    reset_number_as_character_array(array_to_fill);
     int number_to_convert = number;
     int array_position = MAX_NUMBER_CHARS - 2;
     if (number_to_convert != 0)
     {
         while (number_to_convert > 0)
         {
-            ptr_to_number_as_character[array_position--] = (number_to_convert % 10) + ASCII_CONVERSION_OFFSET;
+            array_to_fill[array_position--] = (number_to_convert % 10) + ASCII_CONVERSION_OFFSET;
             number_to_convert /= 10;
         }
     }
 }
 
-/// @brief adds character to wrong_input array
-/// @param lower_case_input
+/**
+ * @brief adds input to the wrong_inputs array if user input isn't part of the word_to_guess array, or it's already gueesed
+ *
+ */
 void update_wrong_inputs(char lower_case_input)
 {
-    ptr_to_wrong_inputs[current_position_at_wrong_input] = lower_case_input;
+    wrong_inputs[current_position_at_wrong_input] = lower_case_input;
     current_position_at_wrong_input += 1;
 }
 
-/// @brief updates the screen
+/**
+ * @brief updates screen to the newest game progress
+ *
+ */
 void update_gui()
 {
-    print_word("\033[H\033[J");
-    print_word(ptr_to_guessed_word);
-    draw_hangman(*wrong_guesses - 1);
+    clear_screen();
+    draw_hangman(wrong);
+    print_word(guessed_word);
+    print_word("Already guessed letters:");
+    print_word(wrong_inputs);
 }
-
-/// @brief calls necessary functions if guess is correct
-/// @param ptr_to_guessed_word
-/// @param ptr_to_selected_word
-/// @param input
-/// @param size
-/// @param wrong_guesses
-void true_guess(char *ptr_to_guessed_word, char *ptr_to_selected_word, char input, int size, int *wrong_guesses)
+void update_gui_from_interrupt(void)
 {
-    fill_guessed_word(ptr_to_guessed_word, ptr_to_selected_word, input, size);
-    *ptr_to_tries += 1;
+    wrong++;
+    tries++;
+    clear_screen();
+    draw_hangman(wrong);
+    print_word(guessed_word);
+    print_word(wrong_inputs);
+    if (wrong == MAX_WRONG_TRIES)
+    {
+        stop_sysTick();
+    }
+}
+/**
+ * @brief handles input if it's in the word_to_guess array
+ *
+ */
+void true_guess(char input)
+{
+    fill_guessed_word(guessed_word, word_to_guess, input, size);
+    tries += 1;
     update_gui();
 }
 
-/// @brief calls necessary functions if guess is wrong
-/// @param wrong
-/// @param guessed_word
-/// @param lower_case_input
-void wrong_guess(int *wrong, char *guessed_word, char lower_case_input)
+/**
+ * @brief handles input if it is not part of the word
+ *
+ * @param lower_case_input
+ */
+void wrong_guess(char lower_case_input)
 {
-    *wrong += 1;
-    *ptr_to_tries += 1;
+    wrong += 1;
+    tries += 1;
     if (!is_already_in_wrong_inputs(lower_case_input, wrong_inputs))
     {
         update_wrong_inputs(lower_case_input);
     }
     update_gui();
 }
-/// @brief starts game
-void start_game()
+
+/**
+ * @brief as long the word isn't guessed fully and there are still tries left it gets a new input and processes it
+ *
+ */
+void get_guesss()
 {
-    uint32_t clocks_to_tick = 800000-1;
-    WriteToRegister(0xE000E014, clocks_to_tick);
-    WriteToRegister(0xE000E018, 0);
-    WriteToRegister(0xE000E010, 0x00000007);
-    init_guessed_word(guessed_word, size);
-    // print_word("enter first letter\r");
-    while (!is_equal(ptr_to_guessed_word, ptr_to_selected_word, size) && *wrong_guesses < MAX_WRONG_TRIES)
+   // start_sysTick();
+    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES)
     {
         char input = read();
-        lower_input = convert_to_lower(input);
+        char lower_input = convert_to_lower(input);
         if (!is_special_character(lower_input))
         {
-            if (is_input_in_word(ptr_to_selected_word, lower_input, size))
+            if (is_input_in_word(word_to_guess, lower_input, size))
             {
                 if (!is_already_guessed(lower_input, guessed_word, size))
                 {
-                    true_guess(ptr_to_guessed_word, ptr_to_selected_word, lower_input, size, wrong_guesses);
+                    true_guess(lower_input);
                 }
                 else
                 {
-                    wrong_guess(wrong_guesses, guessed_word, lower_input);
+                    wrong_guess(lower_input);
                 }
             }
-            else if (!is_input_in_word(ptr_to_selected_word, lower_input, size))
+            else if (!is_input_in_word(word_to_guess, lower_input, size))
             {
-                wrong_guess(wrong_guesses, ptr_to_guessed_word, lower_input);
+                wrong_guess(lower_input);
             }
         }
-        if (is_special_character(lower_input))
-        {
-            wrong_guess(wrong_guesses, ptr_to_guessed_word, lower_input);
-        }
     }
-    WriteToRegister(0xE000E010, 0x00000000);
-    print_stats();
-
 }
-void SysTick_Handler()
+
+/**
+ * @brief is called when the word is guessed or too many wrong inputs were made
+ *
+ */
+void handle_no_guesses_left()
 {
-    if (!is_equal(ptr_to_guessed_word, ptr_to_selected_word, size) && *wrong_guesses < MAX_WRONG_TRIES)
+    stop_sysTick();
+    if (wrong == MAX_WRONG_TRIES)
     {
-        wrong_guess(wrong_guesses, ptr_to_guessed_word, '0');
+        finish_game(0);
+    }
+    else if (is_equal(guessed_word, word_to_guess, size))
+    {
+        finish_game(1);
+    }
+}
+
+/**
+ * @brief calls the functions for the gameplay
+ *
+ */
+void play()
+{
+    print_word("Enter first letter\r");
+    get_guesss();
+    handle_no_guesses_left();
+}
+
+/**
+ * @brief starts the game by getting the word to guess and initializing the necessary arrays
+ *
+ */
+void start_game()
+{
+    size = get_word_to_guess(word_to_guess) + 1;
+    init_array(guessed_word, size);
+    number_to_characters(size -1, wordToGuessLenght);
+    print_word("The length of the word we are looking for is:");
+    print_word(wordToGuessLenght);
+    play();
+}
+
+/**
+ * @brief fills the stats array with the number of tries and the number of mistakes
+ *
+ */
+void fill_arrays_for_statistics()
+{
+    number_to_characters(tries, tries_as_characters);
+    fill_stats(tries_as_characters, 1);
+    number_to_characters(wrong, wrong_guesses_as_character);
+    fill_stats(wrong_guesses_as_character, 3);
+}
+
+/**
+ * @brief draws the final results to the console
+ *
+ * @param result 0 => loose, 1 => win
+ */
+void finish_game(int result)
+{
+    stop_sysTick();
+    if (result == 1)
+    {
+        draw_you_win();
+    }
+    else if (result == 0)
+    {
+        draw_game_over();
+        print_word("The gussed word was:");
+        print_word(word_to_guess);
+    }
+    print_word("Press any key to show statistics");
+    waitForAnyInput();
+    fill_arrays_for_statistics();
+    draw_stats();
+    draw_play_again();
+    print_word("Enter p/P to play again or any button to leave");
+    int decision_asccii_value = read();
+    if (decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
+    {
+        clear_screen();
+        main();
     }
     else
     {
-        print_stats();
-        WriteToRegister(0xE000E010, 0x00000000);
-        for(;;);
+        draw_end();
     }
 }
-/// @brief is the main function called by entry_c.c
+
+/**
+ * @brief starts the SysTick Timer
+ *
+ */
+void start_sysTick()
+{
+    uint32_t clocks_to_tick = 80000 - 1;
+    WriteToRegister(0xE000E014, clocks_to_tick);
+    WriteToRegister(0xE000E018, 0);
+    WriteToRegister(0xE000E010, 0x00000007);
+}
+
+/**
+ * @brief stops the SysTick if the game is over
+ *
+ */
+void stop_sysTick()
+{
+    WriteToRegister(0xE000E010, 0x00000000);
+}
+
+/**
+ * @brief resets dynamic filled values and arrays
+ *
+ */
+void reset_everything()
+{
+    tries = 0;
+    wrong = 0;
+    remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
+    remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);
+    remove_characters_from_array(wrong_inputs, 0, sizeof(wrong_inputs));
+
+}
+
+/**
+ * @brief is the main function called by entry_c.c
+ *
+ */
 void main()
 {
+    reset_everything();
+    clear_screen();
+    draw_starting_screen();
+    print_word("Press s/S to start!");
+    char input = read();
+    while (input != 's' && input != 'S')
+    {
+        input = read();
+    }
     start_game();
 }
