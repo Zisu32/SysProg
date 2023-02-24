@@ -1,4 +1,6 @@
 #include "hal.h"
+#include "main.h"
+int sysTickCounter = 0;
 
 // Specific implementation for ARM-Cortex M4 here:
 
@@ -94,4 +96,14 @@ uint32_t ReadFromRegister( uint32_t address )
 
   // Return the read value
   return value;
+}
+
+void SysTick_Handler()
+{
+  sysTickCounter++;
+  if(sysTickCounter >= 10)
+  {
+    sysTickCounter = 0;
+    update_gui_from_interrupt();
+  }
 }

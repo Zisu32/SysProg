@@ -9,6 +9,7 @@ void wrong_guess(char lower_case_input);
 void true_guess(char input);
 void SysTick_Handler (void);
 void update_gui(void);
+void update_gui_from_interrupt(void);
 void update_wrong_inputs(char lower_case_input);
 void number_to_characters(int number, char *array_to_fill);
 void reset_number_as_character_array(char * array_to_reset);

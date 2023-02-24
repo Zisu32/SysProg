@@ -92,6 +92,19 @@ void update_gui()
     print_word(guessed_word);
     print_word(wrong_inputs);
 }
+void update_gui_from_interrupt(void)
+{
+    wrong++;
+    tries++;
+    clear_screen();
+    draw_hangman(wrong);
+    print_word(guessed_word);
+    print_word(wrong_inputs);
+    if (wrong == MAX_WRONG_TRIES)
+    {
+        stop_sysTick();
+    }
+}
 /**
  * @brief handles input if it's in the word_to_guess array
  *
@@ -125,10 +138,10 @@ void wrong_guess(char lower_case_input)
  */
 void get_guesss()
 {
+    start_sysTick();
     while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES - 1)
     {
         char input = read();
-        start_sysTick();
         char lower_input = convert_to_lower(input);
         if (!is_special_character(lower_input))
         {
@@ -162,7 +175,7 @@ void get_guesss()
 void handle_no_guesses_left()
 {
     stop_sysTick();
-    if (wrong == MAX_WRONG_TRIES - 1)
+    if (wrong == MAX_WRONG_TRIES - 1 || wrong == MAX_WRONG_TRIES)
     {
         finish_game(0);
     }
@@ -213,8 +226,9 @@ void fill_arrays_for_statistics()
  */
 void finish_game(int result)
 {
-    clear_screen();
-    clear_screen();
+    stop_sysTick();
+    // clear_screen();
+    // clear_screen();
     if (result == 1)
     {
         draw_you_win();
@@ -222,24 +236,22 @@ void finish_game(int result)
     else if (result == 0)
     {
         draw_game_over();
+        draw_play_again();
     }
     fill_arrays_for_statistics();
     draw_stats();
-    if (result == 0)
-    {
-        draw_play_again();
-    }
 
     print_word("Enter p/P to play again");
     int decision_asccii_value = read();
-    if (decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
-    {
-        clear_screen();
-        main();
-    }
-    else {
-        draw_end();
-    }
+    // if (decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
+    // {
+    //     clear_screen();
+    //     main();
+    // }
+    // else
+    // {
+    //     draw_end();
+    // }
 }
 
 /**
@@ -248,7 +260,7 @@ void finish_game(int result)
  */
 void start_sysTick()
 {
-    uint32_t clocks_to_tick = 8000000 - 1;
+    uint32_t clocks_to_tick = 80000 - 1;
     WriteToRegister(0xE000E014, clocks_to_tick);
     WriteToRegister(0xE000E018, 0);
     WriteToRegister(0xE000E010, 0x00000007);
@@ -261,25 +273,6 @@ void start_sysTick()
 void stop_sysTick()
 {
     WriteToRegister(0xE000E010, 0x00000000);
-}
-
-/**
- * @brief says what to do if the SysTick Timer went down to 0
- *
- */
-void SysTick_Handler()
-{
-    if (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES)
-    {
-        update_gui();
-        tries += 1;
-        wrong += 1;
-    }
-    else
-    {
-        finish_game(0);
-        return;
-    }
 }
 
 /**
