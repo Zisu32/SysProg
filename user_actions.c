@@ -30,7 +30,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
@@ -51,7 +51,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
@@ -72,7 +72,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
@@ -93,7 +93,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
@@ -114,7 +114,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
@@ -135,7 +135,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
@@ -156,7 +156,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
@@ -177,7 +177,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
@@ -198,7 +198,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
@@ -219,7 +219,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r",
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
 
     "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"
     "MMM                              MMMMMMMMMMM\n\r"
@@ -240,7 +240,7 @@ const char *HANGMAN_ASCII_ART[] = {
     "MMM                                      MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
     "MMM    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    MMM\n\r"
-    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n\r"};
+    "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"};
 
 const char *starting_screen[] =
     {
@@ -276,7 +276,7 @@ const char *game_over_ascii_art[] =
 
 const char *win_ascii_art[] =
     {
-        "                                                 _    ____________________ \n\r"
+        "                                                 _     ____________________ \n\r"
         " __   __                       _         _     _|_|_  |                    |\n\r"
         " \\ \\ / ___  _   _    __      _(_)_ __   | |     ( )  <  We did it! Cheers! |\n\r"
         "  \\ V / _ \\| | | |   \\ \\ /\\ / | | '_ \\  | |     \\|/   |____________________|\n\r"
@@ -417,6 +417,15 @@ int get_word_to_guess(char *word_to_guess)
             return position;
         }
         position += 1;
+    }
+}
+
+void waitForAnyInput()
+{
+    while (1)
+    {
+        char input = read();
+        return;
     }
 }
 

@@ -6,7 +6,7 @@
 #include "logic.h"
 #include "hal.h"
 
-#define MAX_WRONG_TRIES 12
+#define MAX_WRONG_TRIES 11
 #define MAX_WORD_LENGTH 21
 #define MAX_NUMBER_CHARS 4
 #define ASCII_CONVERSION_OFFSET 48
@@ -29,6 +29,7 @@ int current_position_at_wrong_input = 0;
 
 char tries_as_characters[MAX_NUMBER_CHARS] = "000";
 char wrong_guesses_as_character[MAX_NUMBER_CHARS] = "000";
+char wordToGuessLenght[MAX_NUMBER_CHARS] = "000";
 
 void remove_characters_from_array(char *array, int start, int end)
 {
@@ -90,6 +91,7 @@ void update_gui()
     clear_screen();
     draw_hangman(wrong);
     print_word(guessed_word);
+    print_word("Already guessed letters:");
     print_word(wrong_inputs);
 }
 void update_gui_from_interrupt(void)
@@ -138,8 +140,8 @@ void wrong_guess(char lower_case_input)
  */
 void get_guesss()
 {
-    // start_sysTick();
-    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES -1)
+   // start_sysTick();
+    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES)
     {
         char input = read();
         char lower_input = convert_to_lower(input);
@@ -161,10 +163,6 @@ void get_guesss()
                 wrong_guess(lower_input);
             }
         }
-        if (is_special_character(lower_input))
-        {
-            wrong_guess(lower_input);
-        }
     }
 }
 
@@ -175,7 +173,7 @@ void get_guesss()
 void handle_no_guesses_left()
 {
     stop_sysTick();
-    if (wrong == MAX_WRONG_TRIES -1)
+    if (wrong == MAX_WRONG_TRIES)
     {
         finish_game(0);
     }
@@ -204,6 +202,9 @@ void start_game()
 {
     size = get_word_to_guess(word_to_guess) + 1;
     init_array(guessed_word, size);
+    number_to_characters(size -1, wordToGuessLenght);
+    print_word("The length of the word we are looking for is:");
+    print_word(wordToGuessLenght);
     play();
 }
 
@@ -227,8 +228,6 @@ void fill_arrays_for_statistics()
 void finish_game(int result)
 {
     stop_sysTick();
-    // clear_screen();
-    // clear_screen();
     if (result == 1)
     {
         draw_you_win();
@@ -236,12 +235,15 @@ void finish_game(int result)
     else if (result == 0)
     {
         draw_game_over();
-        draw_play_again();
+        print_word("The gussed word was:");
+        print_word(word_to_guess);
     }
+    print_word("Press any key to show statistics");
+    waitForAnyInput();
     fill_arrays_for_statistics();
     draw_stats();
-
-    print_word("Enter p/P to play again");
+    draw_play_again();
+    print_word("Enter p/P to play again or any button to leave");
     int decision_asccii_value = read();
     if (decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
     {
