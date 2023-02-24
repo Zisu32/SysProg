@@ -138,8 +138,8 @@ void wrong_guess(char lower_case_input)
  */
 void get_guesss()
 {
-    start_sysTick();
-    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES - 1)
+    // start_sysTick();
+    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES -1)
     {
         char input = read();
         char lower_input = convert_to_lower(input);
@@ -175,7 +175,7 @@ void get_guesss()
 void handle_no_guesses_left()
 {
     stop_sysTick();
-    if (wrong == MAX_WRONG_TRIES - 1 || wrong == MAX_WRONG_TRIES)
+    if (wrong == MAX_WRONG_TRIES -1)
     {
         finish_game(0);
     }
@@ -243,15 +243,15 @@ void finish_game(int result)
 
     print_word("Enter p/P to play again");
     int decision_asccii_value = read();
-    // if (decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
-    // {
-    //     clear_screen();
-    //     main();
-    // }
-    // else
-    // {
-    //     draw_end();
-    // }
+    if (decision_asccii_value == LOWER_CASE_P || decision_asccii_value == UPPER_CASE_P)
+    {
+        clear_screen();
+        main();
+    }
+    else
+    {
+        draw_end();
+    }
 }
 
 /**
@@ -286,6 +286,7 @@ void reset_everything()
     remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(wrong_inputs, 0, sizeof(wrong_inputs));
+
 }
 
 /**

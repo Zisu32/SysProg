@@ -357,7 +357,7 @@ void draw_game_over()
  */
 void draw_stats()
 {
-    for (int i = 0; i < sizeof(stats); i++)
+    for (int i = 0; i < (sizeof(stats)/sizeof(stats[0])); i++)
     {
         print_word(stats[i]);
     }
