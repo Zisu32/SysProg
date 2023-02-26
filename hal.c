@@ -101,7 +101,7 @@ uint32_t ReadFromRegister( uint32_t address )
 void SysTick_Handler()
 {
   sysTickCounter++;
-  if(sysTickCounter >= 10)
+  if(sysTickCounter >= 10000)
   {
     sysTickCounter = 0;
     update_gui_from_interrupt();

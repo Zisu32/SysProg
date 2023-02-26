@@ -101,10 +101,12 @@ void update_gui_from_interrupt(void)
     clear_screen();
     draw_hangman(wrong);
     print_word(guessed_word);
+    print_word("Already guessed letters:");
     print_word(wrong_inputs);
-    if (wrong == MAX_WRONG_TRIES)
+    if (wrong == MAX_WRONG_TRIES - 1)
     {
         stop_sysTick();
+        // finish_game(0);
     }
 }
 /**
@@ -140,7 +142,7 @@ void wrong_guess(char lower_case_input)
  */
 void get_guesss()
 {
-   // start_sysTick();
+    start_sysTick();
     while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES)
     {
         char input = read();
@@ -202,7 +204,7 @@ void start_game()
 {
     size = get_word_to_guess(word_to_guess) + 1;
     init_array(guessed_word, size);
-    number_to_characters(size -1, wordToGuessLenght);
+    number_to_characters(size - 1, wordToGuessLenght);
     print_word("The length of the word we are looking for is:");
     print_word(wordToGuessLenght);
     play();
@@ -288,7 +290,6 @@ void reset_everything()
     remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(wrong_inputs, 0, sizeof(wrong_inputs));
-
 }
 
 /**
