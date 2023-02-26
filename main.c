@@ -106,7 +106,6 @@ void update_gui_from_interrupt(void)
     if (wrong == MAX_WRONG_TRIES - 1)
     {
         stop_sysTick();
-        // finish_game(0);
     }
 }
 /**
