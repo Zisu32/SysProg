@@ -28,7 +28,6 @@ int timeouts = 0;
 char word_to_guess[MAX_WORD_LENGTH];
 char guessed_word[MAX_WORD_LENGTH];
 
-
 char wrong_inputs[MAX_WRONG_TRIES];
 int current_position_at_wrong_input = 0;
 
@@ -215,7 +214,7 @@ void play()
  */
 void start_game()
 {
-    size = get_word_to_guess(word_to_guess, MAX_WORD_LENGTH-1) + 1;
+    size = get_word_to_guess(word_to_guess, MAX_WORD_LENGTH - 1) + 1;
     init_array(guessed_word, size);
     number_to_characters(size - 1, wordToGuessLenght);
     print_word("The length of the word we are looking for is:");
@@ -235,7 +234,6 @@ void fill_arrays_for_statistics()
     fill_stats(wrong_guesses_as_character, 3);
     number_to_characters(timeouts, timeouts_as_characters);
     fill_stats(timeouts_as_characters, 5);
-
 }
 
 /**
@@ -270,6 +268,7 @@ void finish_game(int result)
     }
     else
     {
+        clear_screen();
         draw_end();
     }
 }

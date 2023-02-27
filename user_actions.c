@@ -320,7 +320,7 @@ const char *end_game_ascii_art[] =
         "__Credits__\n\r"
         "\n\r"
         "Chief Executive Backend Master and Supervision     Janik\n\r"
-        "Pixelschubse and Location Scout                    Pascal\n\r"
+        "Principal Pixelschubse and Location Scout          Pascal\n\r"
         "Head of Bugsniffing and Casting Director           Caro\n\r\n\r"
 
         "__Special Thanks To__\n\r"
