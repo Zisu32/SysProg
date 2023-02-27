@@ -394,13 +394,13 @@ void draw_starting_screen()
  * @param word_to_guess array which gets filled by this function
  * @return int length of the given word
  */
-int get_word_to_guess(char *word_to_guess)
+int get_word_to_guess(char *word_to_guess, int size)
 {
     int position = 0;
     print_word("\n\rEnter the word that should be guessed by your friends");
     print_word("Please keep in mind to use ue, oe, ae");
     print_word("Press Enter to confirm your word");
-    while (1)
+    while (position < size)
     {
         char input = read();
         int input_ascii_value = input;
@@ -419,6 +419,7 @@ int get_word_to_guess(char *word_to_guess)
             return position;
         }
     }
+    return position;
 }
 
 void waitForAnyInput()

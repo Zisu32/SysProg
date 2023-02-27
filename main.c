@@ -6,7 +6,7 @@
 #include "logic.h"
 
 #define MAX_WRONG_TRIES 11
-#define MAX_WORD_LENGTH 21
+#define MAX_WORD_LENGTH 25
 #define MAX_NUMBER_CHARS 4
 #define ASCII_CONVERSION_OFFSET 48
 #define UPPER_CASE_P 80
@@ -210,7 +210,7 @@ void play()
  */
 void start_game()
 {
-    size = get_word_to_guess(word_to_guess) + 1;
+    size = get_word_to_guess(word_to_guess, MAX_WORD_LENGTH-1) + 1;
     init_array(guessed_word, size);
     number_to_characters(size - 1, wordToGuessLenght);
     print_word("The length of the word we are looking for is:");

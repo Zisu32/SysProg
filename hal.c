@@ -84,12 +84,14 @@ char read_input_with_interrupt_handling(void)
 
   DataRegister = DataRegister & 0x000000FF; // sanitize
 
-  if (sysTickCounter < 6500 && ReadFromRegister(0x4000C000 + 0x18) & 0x10)
+  while (sysTickCounter < 6500)
   {
-    sysTickCounter = 0;
-    return (char)DataRegister;
+    if (ReadFromRegister(0x4000C000 + 0x18) & 0x10)
+    {
+      sysTickCounter = 0;
+      return (char)DataRegister;
+    }
   }
-  while(sysTickCounter < 6500);
   if (sysTickCounter >= 6500)
   {
     sysTickCounter = 0;
