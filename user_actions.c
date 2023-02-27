@@ -293,6 +293,9 @@ const char *stats[] =
         "placeholder\n\r",
         "\n\rNO. OF MISENTRIES: ",
         "placeholder\n\r",
+        "\n\r"
+        "NO. OF TIMEOUTS: ",
+        "placeholder\n\r",
         "____________________________________________________\n\r"
         "\n\r"};
 
@@ -360,7 +363,7 @@ void draw_hangman(int incorrect)
  */
 void fill_stats(const char *array_with_number, int position)
 {
-    if (position == 1 || position == 3)
+    if (position == 1 || position == 3 || position == 5)
     {
         stats[position] = array_with_number;
     }
@@ -431,10 +434,10 @@ void draw_rules()
  * @param word_to_guess array which gets filled by this function
  * @return int length of the given word
  */
-int get_word_to_guess(char *word_to_guess)
+int get_word_to_guess(char *word_to_guess, int size)
 {
     int position = 0;
-    while (1)
+    while (position < size)
     {
         char input = read();
         int input_ascii_value = input;
@@ -453,6 +456,7 @@ int get_word_to_guess(char *word_to_guess)
             return position;
         }
     }
+    return position;
 }
 
 /**
