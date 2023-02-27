@@ -407,16 +407,17 @@ int get_word_to_guess(char *word_to_guess)
         if (input_ascii_value >= SMALLEST_UPPER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_UPPER_CASE_ASCII_VALUE)
         {
             word_to_guess[position] = input;
+            position += 1;
         }
         else if (input_ascii_value >= SMALLEST_LOWER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_LOWER_CASE_ASCII_VALUE)
         {
             word_to_guess[position] = toUpper(input);
+            position += 1;
         }
         else if (input_ascii_value == ENTER_ASCII_VALUE)
         {
             return position;
         }
-        position += 1;
     }
 }
 
@@ -456,6 +457,12 @@ void print_single_character(char text)
 char read()
 {
     char input = read_input();
+    return input;
+}
+
+char read_with_interrupt_handling(void)
+{
+    char input = read_input_with_interrupt_handling();
     return input;
 }
 

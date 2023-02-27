@@ -4,7 +4,6 @@
 #include "main.h"
 #include "user_actions.h"
 #include "logic.h"
-#include "hal.h"
 
 #define MAX_WRONG_TRIES 11
 #define MAX_WORD_LENGTH 21
@@ -14,6 +13,9 @@
 #define LOWER_CASE_P 112
 #define UPPER_CASE_Q 81
 #define LOWER_CASE_Q 113
+#define ESCAPE_ASCCI 27
+
+char escape = ESCAPE_ASCCI;
 
 int wrong = 0;
 
@@ -103,10 +105,9 @@ void update_gui_from_interrupt(void)
     print_word(guessed_word);
     print_word("Already guessed letters:");
     print_word(wrong_inputs);
-    if (wrong == MAX_WRONG_TRIES - 1)
+    if (wrong == MAX_WRONG_TRIES)
     {
         stop_sysTick();
-        // finish_game(0);
     }
 }
 /**
@@ -145,24 +146,31 @@ void get_guesss()
     start_sysTick();
     while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES)
     {
-        char input = read();
-        char lower_input = convert_to_lower(input);
-        if (!is_special_character(lower_input))
+        char input = read_with_interrupt_handling();
+        if (input == escape)
         {
-            if (is_input_in_word(word_to_guess, lower_input, size))
+            update_gui_from_interrupt();
+        }
+        else if (input != escape)
+        {
+            char lower_input = convert_to_lower(input);
+            if (!is_special_character(input))
             {
-                if (!is_already_guessed(lower_input, guessed_word, size))
+                if (is_input_in_word(word_to_guess, lower_input, size))
                 {
-                    true_guess(lower_input);
+                    if (!is_already_guessed(lower_input, guessed_word, size))
+                    {
+                        true_guess(lower_input);
+                    }
+                    else
+                    {
+                        wrong_guess(lower_input);
+                    }
                 }
-                else
+                else if (!is_input_in_word(word_to_guess, lower_input, size))
                 {
                     wrong_guess(lower_input);
                 }
-            }
-            else if (!is_input_in_word(word_to_guess, lower_input, size))
-            {
-                wrong_guess(lower_input);
             }
         }
     }
