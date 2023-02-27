@@ -76,19 +76,18 @@ char read_input_with_interrupt_handling(void)
   WriteToRegister(0x4000C000 + 0x00, 0000);
   // FE = "FIFO EMPTY"
   // Active wait for not Empty fifo
-  while (ReadFromRegister(0x4000C000 + 0x18) & 0x10 && sysTickCounter < 6400)
+  while (ReadFromRegister(0x4000C000 + 0x18) & 0x10 && sysTickCounter < 6000)
     ;
-
-  // Read from UART_O_DR
-  DataRegister = ReadFromRegister(0x4000C000 + 0x00);
-
-  DataRegister = DataRegister & 0x000000FF; // sanitize
 
   while (sysTickCounter < 6500)
   {
-    if (ReadFromRegister(0x4000C000 + 0x18) & 0x10)
+    if (sysTickCounter < 6500 && !(ReadFromRegister(0x4000C000 + 0x18) & 0x10))
     {
       sysTickCounter = 0;
+      // Read from UART_O_DR
+      DataRegister = ReadFromRegister(0x4000C000 + 0x00);
+
+      DataRegister = DataRegister & 0x000000FF; // sanitize
       return (char)DataRegister;
     }
   }
@@ -96,6 +95,10 @@ char read_input_with_interrupt_handling(void)
   {
     sysTickCounter = 0;
     char escape = 27;
+    // Read from UART_O_DR
+    DataRegister = ReadFromRegister(0x4000C000 + 0x00);
+
+    DataRegister = DataRegister & 0x000000FF; // sanitize
     return escape;
   }
 }

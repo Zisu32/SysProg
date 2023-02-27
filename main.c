@@ -19,12 +19,15 @@ char escape = ESCAPE_ASCCI;
 
 int wrong = 0;
 
-char word_to_guess[MAX_WORD_LENGTH];
-char guessed_word[MAX_WORD_LENGTH];
-
 int size = 0;
 
 int tries = 0;
+
+int timeouts = 0;
+
+char word_to_guess[MAX_WORD_LENGTH];
+char guessed_word[MAX_WORD_LENGTH];
+
 
 char wrong_inputs[MAX_WRONG_TRIES];
 int current_position_at_wrong_input = 0;
@@ -32,6 +35,7 @@ int current_position_at_wrong_input = 0;
 char tries_as_characters[MAX_NUMBER_CHARS] = "000";
 char wrong_guesses_as_character[MAX_NUMBER_CHARS] = "000";
 char wordToGuessLenght[MAX_NUMBER_CHARS] = "000";
+char timeouts_as_characters[MAX_NUMBER_CHARS] = "000";
 
 void remove_characters_from_array(char *array, int start, int end)
 {
@@ -149,6 +153,7 @@ void get_guesss()
         char input = read_with_interrupt_handling();
         if (input == escape)
         {
+            timeouts++;
             update_gui_from_interrupt();
         }
         else if (input != escape)
@@ -228,6 +233,9 @@ void fill_arrays_for_statistics()
     fill_stats(tries_as_characters, 1);
     number_to_characters(wrong, wrong_guesses_as_character);
     fill_stats(wrong_guesses_as_character, 3);
+    number_to_characters(timeouts, timeouts_as_characters);
+    fill_stats(timeouts_as_characters, 5);
+
 }
 
 /**
@@ -295,6 +303,7 @@ void reset_everything()
 {
     tries = 0;
     wrong = 0;
+    timeouts = 0;
     remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(wrong_inputs, 0, sizeof(wrong_inputs));

@@ -292,6 +292,9 @@ const char *stats[] =
         "placeholder\n\r",
         "\n\rNO. OF MISENTRIES: ",
         "placeholder\n\r",
+        "\n\r"
+        "NO. OF TIMEOUTS: ",
+        "placeholder\n\r",
         "____________________________________________________\n\r"
         "\n\r"};
 
@@ -333,7 +336,7 @@ void draw_hangman(int incorrect)
  */
 void fill_stats(const char *array_with_number, int position)
 {
-    if (position == 1 || position == 3)
+    if (position == 1 || position == 3 || position == 5)
     {
         stats[position] = array_with_number;
     }
