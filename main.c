@@ -93,7 +93,7 @@ void update_gui()
     clear_screen();
     draw_hangman(wrong);
     print_word(guessed_word);
-    print_word("Already guessed letters:");
+    print_word("Letters guessed wrong:");
     print_word(wrong_inputs);
 }
 void update_gui_from_interrupt(void)
@@ -103,7 +103,7 @@ void update_gui_from_interrupt(void)
     clear_screen();
     draw_hangman(wrong);
     print_word(guessed_word);
-    print_word("Already guessed letters:");
+    print_word("Letters guessed wrong:");
     print_word(wrong_inputs);
     if (wrong == MAX_WRONG_TRIES)
     {
@@ -315,5 +315,7 @@ void main()
     {
         input = read();
     }
+    clear_screen();
+    draw_rules();
     start_game();
 }
