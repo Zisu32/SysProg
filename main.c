@@ -6,7 +6,7 @@
 #include "logic.h"
 
 #define MAX_WRONG_TRIES 11
-#define MAX_WORD_LENGTH 25
+#define MAX_WORD_LENGTH 26
 #define MAX_NUMBER_CHARS 4
 #define ASCII_CONVERSION_OFFSET 48
 #define UPPER_CASE_P 80
