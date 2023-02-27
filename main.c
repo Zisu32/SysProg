@@ -304,6 +304,7 @@ void reset_everything()
     tries = 0;
     wrong = 0;
     timeouts = 0;
+    current_position_at_wrong_input = 0;
     remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(wrong_inputs, 0, sizeof(wrong_inputs));
