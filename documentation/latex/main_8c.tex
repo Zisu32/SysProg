@@ -1,0 +1,264 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}user\+\_\+actions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}logic.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_af901473c3a4b10037cea9dbb4cfd645e}\label{main_8c_af901473c3a4b10037cea9dbb4cfd645e}} 
+\#define {\bfseries MAX\+\_\+\+WRONG\+\_\+\+TRIES}~11
+\item 
+\mbox{\Hypertarget{main_8c_aec7b4994021c554c1761ea31d016b680}\label{main_8c_aec7b4994021c554c1761ea31d016b680}} 
+\#define {\bfseries MAX\+\_\+\+WORD\+\_\+\+LENGTH}~26
+\item 
+\mbox{\Hypertarget{main_8c_ac678cb33c3723864ce0128be14945cf2}\label{main_8c_ac678cb33c3723864ce0128be14945cf2}} 
+\#define {\bfseries MAX\+\_\+\+NUMBER\+\_\+\+CHARS}~4
+\item 
+\mbox{\Hypertarget{main_8c_afc566c3953caa02fc07ddbdaf104418d}\label{main_8c_afc566c3953caa02fc07ddbdaf104418d}} 
+\#define {\bfseries UPPER\+\_\+\+CASE\+\_\+P}~80
+\item 
+\mbox{\Hypertarget{main_8c_a09a8ccd5cbf5c198de355d52cba63255}\label{main_8c_a09a8ccd5cbf5c198de355d52cba63255}} 
+\#define {\bfseries LOWER\+\_\+\+CASE\+\_\+P}~112
+\item 
+\mbox{\Hypertarget{main_8c_ae3dfedd76584258cb13985748b7f24fb}\label{main_8c_ae3dfedd76584258cb13985748b7f24fb}} 
+\#define {\bfseries ESCAPE\+\_\+\+ASCCI}~27
+\item 
+\mbox{\Hypertarget{main_8c_ad902f686c659e30e3f4dbce8a8510cfa}\label{main_8c_ad902f686c659e30e3f4dbce8a8510cfa}} 
+\#define {\bfseries ENTER\+\_\+\+ASCII\+\_\+\+VALUE}~13
+\item 
+\mbox{\Hypertarget{main_8c_a461771671c7b25428161f5f7cdc329ac}\label{main_8c_a461771671c7b25428161f5f7cdc329ac}} 
+\#define {\bfseries SMALLEST\+\_\+\+UPPER\+\_\+\+CASE\+\_\+\+ASCII\+\_\+\+VALUE}~65
+\item 
+\mbox{\Hypertarget{main_8c_a195f0ac32096c9e23b03eaefb1bb0178}\label{main_8c_a195f0ac32096c9e23b03eaefb1bb0178}} 
+\#define {\bfseries HIGHEST\+\_\+\+UPPER\+\_\+\+CASE\+\_\+\+ASCII\+\_\+\+VALUE}~90
+\item 
+\mbox{\Hypertarget{main_8c_af0203798f5cca2613c63d48789cc8537}\label{main_8c_af0203798f5cca2613c63d48789cc8537}} 
+\#define {\bfseries SMALLEST\+\_\+\+LOWER\+\_\+\+CASE\+\_\+\+ASCII\+\_\+\+VALUE}~97
+\item 
+\mbox{\Hypertarget{main_8c_a05aa42eb32114b9e3f9f866465ad3a2d}\label{main_8c_a05aa42eb32114b9e3f9f866465ad3a2d}} 
+\#define {\bfseries HIGHEST\+\_\+\+LOWER\+\_\+\+CASE\+\_\+\+ASCII\+\_\+\+VALUE}~122
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a9a527d20bc1ef18dab15e1a3a684eb4a}{update\+\_\+gui}} ()
+\begin{DoxyCompactList}\small\item\em updates screen to the newest game progress \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_abd17f710c0fdeb99ad70e3baeade5b44}{true\+\_\+guess}} (char input)
+\begin{DoxyCompactList}\small\item\em handles input if it\textquotesingle{}s in the word\+\_\+to\+\_\+guess array \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a428b75e24bf4259dca6072375e870df8}{wrong\+\_\+guess}} (char lower\+\_\+case\+\_\+input)
+\begin{DoxyCompactList}\small\item\em handles input if it is not part of the word \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_aef6e63fb7440a76f0755179e4d3e45c9}{fill\+\_\+array\+\_\+with\+\_\+statistics}} ()
+\begin{DoxyCompactList}\small\item\em fills the stats array with the number of tries and the number of mistakes \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_adad1c6f9e4bf1fa683e422ddbc75e698}{start\+\_\+sys\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em starts the Sys\+Tick Timer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a6e7768e17ff1a7cf3c965b03311620b5}{stop\+\_\+sys\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em stops the Sys\+Tick if the game is over \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a7b64d01ad05c0e1bb54b40ee2426db08}{finish\+\_\+game}} (int result)
+\begin{DoxyCompactList}\small\item\em draws the final results to the console \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a696ad541e8cfbd2a123358d74939df66}{handle\+\_\+no\+\_\+guesses\+\_\+left}} ()
+\begin{DoxyCompactList}\small\item\em is called when the word is guessed or too many wrong inputs were made \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a11de7e4d67e6fb76fcfe4143cd0b5258}{get\+\_\+guesss}} ()
+\begin{DoxyCompactList}\small\item\em while the word isn\textquotesingle{}t guessed wright and there are more wrong inputs allowed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a6d58098c6cf63c241ed03bc797256bb1}{play}} ()
+\begin{DoxyCompactList}\small\item\em calls the functions for the gameplay \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a4c4a6b80e3aa4849859c47668460aee4}{get\+\_\+word\+\_\+to\+\_\+guess}} ()
+\begin{DoxyCompactList}\small\item\em Get the word to guess. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a671b58f5509a3a9fa692bacccfc32cc9}{start\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em starts the game by getting the word to guess and initializing the necessary arrays \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a11d0ea735db92da7e7c7b8782a2ef044}{reset\+\_\+everything}} ()
+\begin{DoxyCompactList}\small\item\em resets dynamic filled values and arrays \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_acdef7a1fd863a6d3770c1268cb06add3}{main}} ()
+\begin{DoxyCompactList}\small\item\em is the main function called by \mbox{\hyperlink{entry__c_8c}{entry\+\_\+c.\+c}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a221a12e7a04de42ea66e760273c08ec5}\label{main_8c_a221a12e7a04de42ea66e760273c08ec5}} 
+int {\bfseries number\+\_\+of\+\_\+wrong\+\_\+inputs} = 0
+\item 
+\mbox{\Hypertarget{main_8c_ac2d469fb058eab553416d8f494cc6a2b}\label{main_8c_ac2d469fb058eab553416d8f494cc6a2b}} 
+int {\bfseries length\+\_\+of\+\_\+word} = 0
+\item 
+\mbox{\Hypertarget{main_8c_a04cecf6708b77deed43900afdf14e8d9}\label{main_8c_a04cecf6708b77deed43900afdf14e8d9}} 
+int {\bfseries tries} = 0
+\item 
+\mbox{\Hypertarget{main_8c_ae3307d49d4668e7619af7e658911001b}\label{main_8c_ae3307d49d4668e7619af7e658911001b}} 
+int {\bfseries timeouts\+\_\+by\+\_\+systick} = 0
+\item 
+\mbox{\Hypertarget{main_8c_ab84e4750fe4667d53a6a4e64ca38fb18}\label{main_8c_ab84e4750fe4667d53a6a4e64ca38fb18}} 
+char {\bfseries word\+\_\+to\+\_\+guess} \mbox{[}MAX\+\_\+\+WORD\+\_\+\+LENGTH\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_ae65c657c96f6ea683faa3e134c007341}\label{main_8c_ae65c657c96f6ea683faa3e134c007341}} 
+char {\bfseries guessed\+\_\+word} \mbox{[}MAX\+\_\+\+WORD\+\_\+\+LENGTH\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a0213e43725492bc5cccdd090ff925153}\label{main_8c_a0213e43725492bc5cccdd090ff925153}} 
+char {\bfseries wrong\+\_\+inputs} \mbox{[}MAX\+\_\+\+WRONG\+\_\+\+TRIES\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8c_a80bd5fbb774c5def31a26cf6b89bc746}\label{main_8c_a80bd5fbb774c5def31a26cf6b89bc746}} 
+char {\bfseries tries\+\_\+as\+\_\+characters} \mbox{[}MAX\+\_\+\+NUMBER\+\_\+\+CHARS\mbox{]} = \char`\"{}000\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a14f9731c4292c37fb220c48b112e376d}\label{main_8c_a14f9731c4292c37fb220c48b112e376d}} 
+char {\bfseries wrong\+\_\+guesses\+\_\+as\+\_\+character} \mbox{[}MAX\+\_\+\+NUMBER\+\_\+\+CHARS\mbox{]} = \char`\"{}000\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a331f930dd912cdf697beae1c5db76cbb}\label{main_8c_a331f930dd912cdf697beae1c5db76cbb}} 
+char {\bfseries word\+To\+Guess\+Length} \mbox{[}MAX\+\_\+\+NUMBER\+\_\+\+CHARS\mbox{]} = \char`\"{}000\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a7be5dfee8ff0903b27933d60a3817ab7}\label{main_8c_a7be5dfee8ff0903b27933d60a3817ab7}} 
+char {\bfseries timeouts\+\_\+as\+\_\+characters} \mbox{[}MAX\+\_\+\+NUMBER\+\_\+\+CHARS\mbox{]} = \char`\"{}000\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_aef6e63fb7440a76f0755179e4d3e45c9}\label{main_8c_aef6e63fb7440a76f0755179e4d3e45c9}} 
+\index{main.c@{main.c}!fill\_array\_with\_statistics@{fill\_array\_with\_statistics}}
+\index{fill\_array\_with\_statistics@{fill\_array\_with\_statistics}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{fill\_array\_with\_statistics()}{fill\_array\_with\_statistics()}}
+{\footnotesize\ttfamily void fill\+\_\+array\+\_\+with\+\_\+statistics (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+fills the stats array with the number of tries and the number of mistakes 
+
+\mbox{\Hypertarget{main_8c_a7b64d01ad05c0e1bb54b40ee2426db08}\label{main_8c_a7b64d01ad05c0e1bb54b40ee2426db08}} 
+\index{main.c@{main.c}!finish\_game@{finish\_game}}
+\index{finish\_game@{finish\_game}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{finish\_game()}{finish\_game()}}
+{\footnotesize\ttfamily void finish\+\_\+game (\begin{DoxyParamCaption}\item[{int}]{result }\end{DoxyParamCaption})}
+
+
+
+draws the final results to the console 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & 0 =\texorpdfstring{$>$}{>} loose, 1 =\texorpdfstring{$>$}{>} win \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a11de7e4d67e6fb76fcfe4143cd0b5258}\label{main_8c_a11de7e4d67e6fb76fcfe4143cd0b5258}} 
+\index{main.c@{main.c}!get\_guesss@{get\_guesss}}
+\index{get\_guesss@{get\_guesss}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{get\_guesss()}{get\_guesss()}}
+{\footnotesize\ttfamily void get\+\_\+guesss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+while the word isn\textquotesingle{}t guessed wright and there are more wrong inputs allowed 
+
+\mbox{\Hypertarget{main_8c_a4c4a6b80e3aa4849859c47668460aee4}\label{main_8c_a4c4a6b80e3aa4849859c47668460aee4}} 
+\index{main.c@{main.c}!get\_word\_to\_guess@{get\_word\_to\_guess}}
+\index{get\_word\_to\_guess@{get\_word\_to\_guess}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{get\_word\_to\_guess()}{get\_word\_to\_guess()}}
+{\footnotesize\ttfamily void get\+\_\+word\+\_\+to\+\_\+guess (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the word to guess. 
+
+fills the word\+\_\+to\+\_\+guess array \mbox{\Hypertarget{main_8c_a696ad541e8cfbd2a123358d74939df66}\label{main_8c_a696ad541e8cfbd2a123358d74939df66}} 
+\index{main.c@{main.c}!handle\_no\_guesses\_left@{handle\_no\_guesses\_left}}
+\index{handle\_no\_guesses\_left@{handle\_no\_guesses\_left}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{handle\_no\_guesses\_left()}{handle\_no\_guesses\_left()}}
+{\footnotesize\ttfamily void handle\+\_\+no\+\_\+guesses\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+is called when the word is guessed or too many wrong inputs were made 
+
+\mbox{\Hypertarget{main_8c_acdef7a1fd863a6d3770c1268cb06add3}\label{main_8c_acdef7a1fd863a6d3770c1268cb06add3}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+is the main function called by \mbox{\hyperlink{entry__c_8c}{entry\+\_\+c.\+c}} 
+
+\mbox{\Hypertarget{main_8c_a6d58098c6cf63c241ed03bc797256bb1}\label{main_8c_a6d58098c6cf63c241ed03bc797256bb1}} 
+\index{main.c@{main.c}!play@{play}}
+\index{play@{play}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily void play (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+calls the functions for the gameplay 
+
+\mbox{\Hypertarget{main_8c_a11d0ea735db92da7e7c7b8782a2ef044}\label{main_8c_a11d0ea735db92da7e7c7b8782a2ef044}} 
+\index{main.c@{main.c}!reset\_everything@{reset\_everything}}
+\index{reset\_everything@{reset\_everything}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{reset\_everything()}{reset\_everything()}}
+{\footnotesize\ttfamily void reset\+\_\+everything (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+resets dynamic filled values and arrays 
+
+\mbox{\Hypertarget{main_8c_a671b58f5509a3a9fa692bacccfc32cc9}\label{main_8c_a671b58f5509a3a9fa692bacccfc32cc9}} 
+\index{main.c@{main.c}!start\_game@{start\_game}}
+\index{start\_game@{start\_game}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{start\_game()}{start\_game()}}
+{\footnotesize\ttfamily void start\+\_\+game (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+starts the game by getting the word to guess and initializing the necessary arrays 
+
+\mbox{\Hypertarget{main_8c_adad1c6f9e4bf1fa683e422ddbc75e698}\label{main_8c_adad1c6f9e4bf1fa683e422ddbc75e698}} 
+\index{main.c@{main.c}!start\_sysTick@{start\_sysTick}}
+\index{start\_sysTick@{start\_sysTick}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{start\_sysTick()}{start\_sysTick()}}
+{\footnotesize\ttfamily void start\+\_\+sys\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+starts the Sys\+Tick Timer 
+
+\mbox{\Hypertarget{main_8c_a6e7768e17ff1a7cf3c965b03311620b5}\label{main_8c_a6e7768e17ff1a7cf3c965b03311620b5}} 
+\index{main.c@{main.c}!stop\_sysTick@{stop\_sysTick}}
+\index{stop\_sysTick@{stop\_sysTick}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{stop\_sysTick()}{stop\_sysTick()}}
+{\footnotesize\ttfamily void stop\+\_\+sys\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+stops the Sys\+Tick if the game is over 
+
+\mbox{\Hypertarget{main_8c_abd17f710c0fdeb99ad70e3baeade5b44}\label{main_8c_abd17f710c0fdeb99ad70e3baeade5b44}} 
+\index{main.c@{main.c}!true\_guess@{true\_guess}}
+\index{true\_guess@{true\_guess}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{true\_guess()}{true\_guess()}}
+{\footnotesize\ttfamily void true\+\_\+guess (\begin{DoxyParamCaption}\item[{char}]{input }\end{DoxyParamCaption})}
+
+
+
+handles input if it\textquotesingle{}s in the word\+\_\+to\+\_\+guess array 
+
+\mbox{\Hypertarget{main_8c_a9a527d20bc1ef18dab15e1a3a684eb4a}\label{main_8c_a9a527d20bc1ef18dab15e1a3a684eb4a}} 
+\index{main.c@{main.c}!update\_gui@{update\_gui}}
+\index{update\_gui@{update\_gui}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{update\_gui()}{update\_gui()}}
+{\footnotesize\ttfamily void update\+\_\+gui (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+updates screen to the newest game progress 
+
+\mbox{\Hypertarget{main_8c_a428b75e24bf4259dca6072375e870df8}\label{main_8c_a428b75e24bf4259dca6072375e870df8}} 
+\index{main.c@{main.c}!wrong\_guess@{wrong\_guess}}
+\index{wrong\_guess@{wrong\_guess}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{wrong\_guess()}{wrong\_guess()}}
+{\footnotesize\ttfamily void wrong\+\_\+guess (\begin{DoxyParamCaption}\item[{char}]{lower\+\_\+case\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+handles input if it is not part of the word 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+\_\+case\+\_\+input} & \\
+\hline
+\end{DoxyParams}

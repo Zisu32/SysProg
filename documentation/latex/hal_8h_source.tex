@@ -1,0 +1,23 @@
+\hypertarget{hal_8h_source}{}\doxysection{hal.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ for\ Init\ the\ UART:}}
+\DoxyCodeLine{00004\ \textcolor{keywordtype}{void}\ uartInit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Output\ Routines:}}
+\DoxyCodeLine{00007\ \textcolor{keywordtype}{void}\ printChar(\textcolor{keywordtype}{char}\ text);}
+\DoxyCodeLine{00008\ \textcolor{keywordtype}{void}\ printString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *text);}
+\DoxyCodeLine{00009\ \textcolor{keywordtype}{void}\ printStringWithLen(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *text,\ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Input\ Routines:}}
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{char}\ read\_input(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{hal_8c_ade8ef45d1d37a87d1255398b4709980e}{read\_input\_with\_interrupt\_handling}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Generic\ Register-\/Access:}}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ WriteToRegister(\ uint32\_t\ address,\ uint32\_t\ value);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ uint32\_t\ ReadFromRegister(uint32\_t\ address);}
+
+\end{DoxyCode}

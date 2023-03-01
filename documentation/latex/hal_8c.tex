@@ -1,0 +1,62 @@
+\hypertarget{hal_8c}{}\doxysection{hal.\+c File Reference}
+\label{hal_8c}\index{hal.c@{hal.c}}
+{\ttfamily \#include \char`\"{}hal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}user\+\_\+actions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hal_8c_ae3dfedd76584258cb13985748b7f24fb}\label{hal_8c_ae3dfedd76584258cb13985748b7f24fb}} 
+\#define {\bfseries ESCAPE\+\_\+\+ASCCI}~27
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hal_8c_a09a7a9ed4194733a7b753c3b795b1734}\label{hal_8c_a09a7a9ed4194733a7b753c3b795b1734}} 
+void {\bfseries uart\+Init} (void)
+\item 
+\mbox{\Hypertarget{hal_8c_aed431967aac310a30fec5d9a107af7ad}\label{hal_8c_aed431967aac310a30fec5d9a107af7ad}} 
+void {\bfseries print\+String} (const char $\ast$text)
+\item 
+\mbox{\Hypertarget{hal_8c_aa0ce6f9d38406aaa2e9d9ae952155d33}\label{hal_8c_aa0ce6f9d38406aaa2e9d9ae952155d33}} 
+void {\bfseries print\+String\+With\+Len} (const char $\ast$text, int len)
+\item 
+\mbox{\Hypertarget{hal_8c_ad715d6b6e8333c2dde89d050685da5ab}\label{hal_8c_ad715d6b6e8333c2dde89d050685da5ab}} 
+void {\bfseries print\+Char} (char text)
+\item 
+\mbox{\Hypertarget{hal_8c_a9535564e76a9e9b77ce2c869adfc2259}\label{hal_8c_a9535564e76a9e9b77ce2c869adfc2259}} 
+char {\bfseries read\+\_\+input} (void)
+\item 
+char \mbox{\hyperlink{hal_8c_ade8ef45d1d37a87d1255398b4709980e}{read\+\_\+input\+\_\+with\+\_\+interrupt\+\_\+handling}} (void)
+\begin{DoxyCompactList}\small\item\em returns special character if sys\+Tick\+Counter reaches the value of 6500 ore more \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hal_8c_a57e3159e690de2420287ba0db71c8607}\label{hal_8c_a57e3159e690de2420287ba0db71c8607}} 
+void {\bfseries Write\+To\+Register} (uint32\+\_\+t address, uint32\+\_\+t value)
+\item 
+\mbox{\Hypertarget{hal_8c_aa03e06805932cd1b0635c735d91c12d4}\label{hal_8c_aa03e06805932cd1b0635c735d91c12d4}} 
+uint32\+\_\+t {\bfseries Read\+From\+Register} (uint32\+\_\+t address)
+\item 
+\mbox{\Hypertarget{hal_8c_aafb8d3e0fd06464b1ee0ae1edbc3c7d6}\label{hal_8c_aafb8d3e0fd06464b1ee0ae1edbc3c7d6}} 
+void {\bfseries Sys\+Tick\+\_\+\+Handler} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hal_8c_a01f6cbc5129d3bf32f81305973a9381e}\label{hal_8c_a01f6cbc5129d3bf32f81305973a9381e}} 
+int {\bfseries sys\+Tick\+Counter} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{hal_8c_ade8ef45d1d37a87d1255398b4709980e}\label{hal_8c_ade8ef45d1d37a87d1255398b4709980e}} 
+\index{hal.c@{hal.c}!read\_input\_with\_interrupt\_handling@{read\_input\_with\_interrupt\_handling}}
+\index{read\_input\_with\_interrupt\_handling@{read\_input\_with\_interrupt\_handling}!hal.c@{hal.c}}
+\doxysubsubsection{\texorpdfstring{read\_input\_with\_interrupt\_handling()}{read\_input\_with\_interrupt\_handling()}}
+{\footnotesize\ttfamily char read\+\_\+input\+\_\+with\+\_\+interrupt\+\_\+handling (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+returns special character if sys\+Tick\+Counter reaches the value of 6500 ore more 
+
+\begin{DoxyReturn}{Returns}
+char 
+\end{DoxyReturn}

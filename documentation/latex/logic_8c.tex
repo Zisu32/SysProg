@@ -1,0 +1,300 @@
+\hypertarget{logic_8c}{}\doxysection{logic.\+c File Reference}
+\label{logic_8c}\index{logic.c@{logic.c}}
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}logic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}user\+\_\+actions.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{logic_8c_a747f0323e904fb37af2033a168e8e092}\label{logic_8c_a747f0323e904fb37af2033a168e8e092}} 
+\#define {\bfseries ASCII\+\_\+\+CONVERSION\+\_\+\+OFFSET}~48
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{logic_8c_a657464bcb9420dc4b70f27c7353c08cb}{convert\+\_\+to\+\_\+upper}} (char low)
+\begin{DoxyCompactList}\small\item\em converts given character to uppercase \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{logic_8c_aecafd121addf7431c6bffdd5c8d528c3}{is\+\_\+input\+\_\+in\+\_\+word}} (char $\ast$selected\+\_\+word, char input, int size)
+\begin{DoxyCompactList}\small\item\em cheks if input is in word \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logic_8c_a77757900eeb80d964937b81e36fa01f6}{init\+\_\+array}} (char $\ast$array, int length)
+\begin{DoxyCompactList}\small\item\em initializes guessed\+\_\+word array with underscores for every position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logic_8c_a1b1af726da3800f5335a388caa6df63c}{fill\+\_\+guessed\+\_\+word}} (char $\ast$guessed\+\_\+word, char $\ast$selected\+\_\+word, char input, int size)
+\begin{DoxyCompactList}\small\item\em it puts the input character at the positions where it is in the original word \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{logic_8c_a8a792be6ca16e96981d8f28904699106}{is\+\_\+equal}} (char $\ast$guessed, char $\ast$selected, int size)
+\begin{DoxyCompactList}\small\item\em checks if the full word is guessed by the player \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{logic_8c_ac9c104acd2dd8f5c65c6a76c607fa948}{is\+\_\+special\+\_\+character}} (char input)
+\begin{DoxyCompactList}\small\item\em checks if input is a special character \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{logic_8c_a640da095ad83fbb06cff33df7fefbcd7}{convert\+\_\+to\+\_\+lower}} (char input)
+\begin{DoxyCompactList}\small\item\em checks if char is lower or upper case and converts input to lowercase if necessary \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{logic_8c_aba82028fa91a3a9b42086d264948ede1}{is\+\_\+already\+\_\+guessed}} (char input, char $\ast$guessed\+\_\+word, int size)
+\begin{DoxyCompactList}\small\item\em checks if the user input has been guessed already \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{logic_8c_ab4ae69c20eb1a8a864a349b43018f160}{is\+\_\+already\+\_\+in\+\_\+wrong\+\_\+inputs}} (char input, char $\ast$wrong\+\_\+guesses)
+\begin{DoxyCompactList}\small\item\em checks if user input is aleady in wrong\+\_\+guesses array \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logic_8c_a19df01f6f53ae6fedb1d0189e7079c6c}{remove\+\_\+characters\+\_\+from\+\_\+array}} (char $\ast$array, int end)
+\begin{DoxyCompactList}\small\item\em removes all characters from array \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logic_8c_a20ee0574868b7256abb611fa09069d59}{reset\+\_\+number\+\_\+as\+\_\+character\+\_\+array}} (char $\ast$array\+\_\+to\+\_\+reset, int size)
+\begin{DoxyCompactList}\small\item\em restes given array to inital \char`\"{}000\char`\"{} value to prevent wrong outputs by previous convertions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logic_8c_ab56fc210c3312fa51e15362e12a9e9f6}{number\+\_\+to\+\_\+characters}} (int number, char $\ast$array\+\_\+to\+\_\+fill, int size)
+\begin{DoxyCompactList}\small\item\em converts the given number to an charcter and fills the gien array with the converted number \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logic_8c_a213224cdc571a0fa20b4aa11758b47e3}{update\+\_\+wrong\+\_\+inputs}} (char lower\+\_\+case\+\_\+input, char $\ast$wrong\+\_\+inputs)
+\begin{DoxyCompactList}\small\item\em adds input to the wrong\+\_\+inputs array if user input isn\textquotesingle{}t part of the word\+\_\+to\+\_\+guess array, or it\textquotesingle{}s already gueesed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logic_8c_a0ab65fd3dba4110ee0df699e0b74dc0d}{reset\+\_\+wrong\+\_\+inputs\+\_\+position}} ()
+\begin{DoxyCompactList}\small\item\em resets the position variable for the wrong\+\_\+inputs array \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{logic_8c_a111cc57b0b6f14a53df3c21b498a7a19}\label{logic_8c_a111cc57b0b6f14a53df3c21b498a7a19}} 
+int {\bfseries current\+\_\+position\+\_\+at\+\_\+wrong\+\_\+input} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{logic_8c_a640da095ad83fbb06cff33df7fefbcd7}\label{logic_8c_a640da095ad83fbb06cff33df7fefbcd7}} 
+\index{logic.c@{logic.c}!convert\_to\_lower@{convert\_to\_lower}}
+\index{convert\_to\_lower@{convert\_to\_lower}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{convert\_to\_lower()}{convert\_to\_lower()}}
+{\footnotesize\ttfamily char convert\+\_\+to\+\_\+lower (\begin{DoxyParamCaption}\item[{char}]{input }\end{DoxyParamCaption})}
+
+
+
+checks if char is lower or upper case and converts input to lowercase if necessary 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+lowercase version of input 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logic_8c_a657464bcb9420dc4b70f27c7353c08cb}\label{logic_8c_a657464bcb9420dc4b70f27c7353c08cb}} 
+\index{logic.c@{logic.c}!convert\_to\_upper@{convert\_to\_upper}}
+\index{convert\_to\_upper@{convert\_to\_upper}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{convert\_to\_upper()}{convert\_to\_upper()}}
+{\footnotesize\ttfamily char convert\+\_\+to\+\_\+upper (\begin{DoxyParamCaption}\item[{char}]{low }\end{DoxyParamCaption})}
+
+
+
+converts given character to uppercase 
+
+
+\begin{DoxyParams}{Parameters}
+{\em low} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char as uppercase 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logic_8c_a1b1af726da3800f5335a388caa6df63c}\label{logic_8c_a1b1af726da3800f5335a388caa6df63c}} 
+\index{logic.c@{logic.c}!fill\_guessed\_word@{fill\_guessed\_word}}
+\index{fill\_guessed\_word@{fill\_guessed\_word}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{fill\_guessed\_word()}{fill\_guessed\_word()}}
+{\footnotesize\ttfamily void fill\+\_\+guessed\+\_\+word (\begin{DoxyParamCaption}\item[{char $\ast$}]{guessed\+\_\+word,  }\item[{char $\ast$}]{selected\+\_\+word,  }\item[{char}]{input,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+it puts the input character at the positions where it is in the original word 
+
+it converts input to uppercase so the guessed\+\_\+word contains uppercase characters 
+\begin{DoxyParams}{Parameters}
+{\em guessed\+\_\+word} & word that\textquotesingle{}s filled with the users input \\
+\hline
+{\em selected\+\_\+word} & is the word the player should guess \\
+\hline
+{\em input} & \\
+\hline
+{\em size} & limits the number of steps are made \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logic_8c_a77757900eeb80d964937b81e36fa01f6}\label{logic_8c_a77757900eeb80d964937b81e36fa01f6}} 
+\index{logic.c@{logic.c}!init\_array@{init\_array}}
+\index{init\_array@{init\_array}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{init\_array()}{init\_array()}}
+{\footnotesize\ttfamily void init\+\_\+array (\begin{DoxyParamCaption}\item[{char $\ast$}]{array,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+
+initializes guessed\+\_\+word array with underscores for every position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em guessed\+\_\+word} & word that\textquotesingle{}s filled with the users input \\
+\hline
+{\em length} & limits the number of steps are made \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logic_8c_aba82028fa91a3a9b42086d264948ede1}\label{logic_8c_aba82028fa91a3a9b42086d264948ede1}} 
+\index{logic.c@{logic.c}!is\_already\_guessed@{is\_already\_guessed}}
+\index{is\_already\_guessed@{is\_already\_guessed}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{is\_already\_guessed()}{is\_already\_guessed()}}
+{\footnotesize\ttfamily bool is\+\_\+already\+\_\+guessed (\begin{DoxyParamCaption}\item[{char}]{input,  }\item[{char $\ast$}]{guessed\+\_\+word,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+checks if the user input has been guessed already 
+
+necessary, because this counts as mistake 
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+{\em guessed\+\_\+word} & \\
+\hline
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{logic_8c_ab4ae69c20eb1a8a864a349b43018f160}\label{logic_8c_ab4ae69c20eb1a8a864a349b43018f160}} 
+\index{logic.c@{logic.c}!is\_already\_in\_wrong\_inputs@{is\_already\_in\_wrong\_inputs}}
+\index{is\_already\_in\_wrong\_inputs@{is\_already\_in\_wrong\_inputs}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{is\_already\_in\_wrong\_inputs()}{is\_already\_in\_wrong\_inputs()}}
+{\footnotesize\ttfamily bool is\+\_\+already\+\_\+in\+\_\+wrong\+\_\+inputs (\begin{DoxyParamCaption}\item[{char}]{input,  }\item[{char $\ast$}]{wrong\+\_\+guesses }\end{DoxyParamCaption})}
+
+
+
+checks if user input is aleady in wrong\+\_\+guesses array 
+
+keeps the array with wrong guesses short, as it doesn\textquotesingle{}t contain doubled values 
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+{\em wrong\+\_\+guesses} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{logic_8c_a8a792be6ca16e96981d8f28904699106}\label{logic_8c_a8a792be6ca16e96981d8f28904699106}} 
+\index{logic.c@{logic.c}!is\_equal@{is\_equal}}
+\index{is\_equal@{is\_equal}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{is\_equal()}{is\_equal()}}
+{\footnotesize\ttfamily bool is\+\_\+equal (\begin{DoxyParamCaption}\item[{char $\ast$}]{guessed,  }\item[{char $\ast$}]{selected,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+checks if the full word is guessed by the player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gurssed} & is the word the player should guess \\
+\hline
+{\em selected} & \\
+\hline
+{\em size} & limits the number of steps are made \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if words are equal, false if still characters are missing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logic_8c_aecafd121addf7431c6bffdd5c8d528c3}\label{logic_8c_aecafd121addf7431c6bffdd5c8d528c3}} 
+\index{logic.c@{logic.c}!is\_input\_in\_word@{is\_input\_in\_word}}
+\index{is\_input\_in\_word@{is\_input\_in\_word}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{is\_input\_in\_word()}{is\_input\_in\_word()}}
+{\footnotesize\ttfamily bool is\+\_\+input\+\_\+in\+\_\+word (\begin{DoxyParamCaption}\item[{char $\ast$}]{selected\+\_\+word,  }\item[{char}]{input,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+cheks if input is in word 
+
+conversion to uppercase is considered as well 
+\begin{DoxyParams}{Parameters}
+{\em selected\+\_\+word} & is the word the player should guess \\
+\hline
+{\em input} & is the character the player typed in the console \\
+\hline
+{\em size} & limits the number of steps are made \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if guess is correct, falls if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logic_8c_ac9c104acd2dd8f5c65c6a76c607fa948}\label{logic_8c_ac9c104acd2dd8f5c65c6a76c607fa948}} 
+\index{logic.c@{logic.c}!is\_special\_character@{is\_special\_character}}
+\index{is\_special\_character@{is\_special\_character}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{is\_special\_character()}{is\_special\_character()}}
+{\footnotesize\ttfamily bool is\+\_\+special\+\_\+character (\begin{DoxyParamCaption}\item[{char}]{input }\end{DoxyParamCaption})}
+
+
+
+checks if input is a special character 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it\textquotesingle{}s a special character, falls if its a letter excpet ö,ä,ü 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logic_8c_ab56fc210c3312fa51e15362e12a9e9f6}\label{logic_8c_ab56fc210c3312fa51e15362e12a9e9f6}} 
+\index{logic.c@{logic.c}!number\_to\_characters@{number\_to\_characters}}
+\index{number\_to\_characters@{number\_to\_characters}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{number\_to\_characters()}{number\_to\_characters()}}
+{\footnotesize\ttfamily void number\+\_\+to\+\_\+characters (\begin{DoxyParamCaption}\item[{int}]{number,  }\item[{char $\ast$}]{array\+\_\+to\+\_\+fill,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+converts the given number to an charcter and fills the gien array with the converted number 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & \\
+\hline
+{\em array\+\_\+to\+\_\+fill} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logic_8c_a19df01f6f53ae6fedb1d0189e7079c6c}\label{logic_8c_a19df01f6f53ae6fedb1d0189e7079c6c}} 
+\index{logic.c@{logic.c}!remove\_characters\_from\_array@{remove\_characters\_from\_array}}
+\index{remove\_characters\_from\_array@{remove\_characters\_from\_array}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{remove\_characters\_from\_array()}{remove\_characters\_from\_array()}}
+{\footnotesize\ttfamily void remove\+\_\+characters\+\_\+from\+\_\+array (\begin{DoxyParamCaption}\item[{char $\ast$}]{array,  }\item[{int}]{end }\end{DoxyParamCaption})}
+
+
+
+removes all characters from array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & gives the array that should be cleaned \\
+\hline
+{\em end} & gives the length of the array that should be cleaned, to prevent access violation at other variables \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logic_8c_a20ee0574868b7256abb611fa09069d59}\label{logic_8c_a20ee0574868b7256abb611fa09069d59}} 
+\index{logic.c@{logic.c}!reset\_number\_as\_character\_array@{reset\_number\_as\_character\_array}}
+\index{reset\_number\_as\_character\_array@{reset\_number\_as\_character\_array}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{reset\_number\_as\_character\_array()}{reset\_number\_as\_character\_array()}}
+{\footnotesize\ttfamily void reset\+\_\+number\+\_\+as\+\_\+character\+\_\+array (\begin{DoxyParamCaption}\item[{char $\ast$}]{array\+\_\+to\+\_\+reset,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+restes given array to inital \char`\"{}000\char`\"{} value to prevent wrong outputs by previous convertions 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array\+\_\+to\+\_\+reset} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logic_8c_a0ab65fd3dba4110ee0df699e0b74dc0d}\label{logic_8c_a0ab65fd3dba4110ee0df699e0b74dc0d}} 
+\index{logic.c@{logic.c}!reset\_wrong\_inputs\_position@{reset\_wrong\_inputs\_position}}
+\index{reset\_wrong\_inputs\_position@{reset\_wrong\_inputs\_position}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{reset\_wrong\_inputs\_position()}{reset\_wrong\_inputs\_position()}}
+{\footnotesize\ttfamily void reset\+\_\+wrong\+\_\+inputs\+\_\+position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+resets the position variable for the wrong\+\_\+inputs array 
+
+\mbox{\Hypertarget{logic_8c_a213224cdc571a0fa20b4aa11758b47e3}\label{logic_8c_a213224cdc571a0fa20b4aa11758b47e3}} 
+\index{logic.c@{logic.c}!update\_wrong\_inputs@{update\_wrong\_inputs}}
+\index{update\_wrong\_inputs@{update\_wrong\_inputs}!logic.c@{logic.c}}
+\doxysubsubsection{\texorpdfstring{update\_wrong\_inputs()}{update\_wrong\_inputs()}}
+{\footnotesize\ttfamily void update\+\_\+wrong\+\_\+inputs (\begin{DoxyParamCaption}\item[{char}]{lower\+\_\+case\+\_\+input,  }\item[{char $\ast$}]{wrong\+\_\+inputs }\end{DoxyParamCaption})}
+
+
+
+adds input to the wrong\+\_\+inputs array if user input isn\textquotesingle{}t part of the word\+\_\+to\+\_\+guess array, or it\textquotesingle{}s already gueesed 
+
