@@ -4,6 +4,8 @@
 #include "logic.h"
 #include "user_actions.h"
 
+#define ASCII_CONVERSION_OFFSET 48
+
 /**
  * @brief converts given character to uppercase
  *
@@ -213,4 +215,62 @@ bool is_already_in_wrong_inputs(char input, char *wrong_guesses)
         }
     }
     return false;
+}
+
+void remove_characters_from_array(char *array, int start, int end)
+{
+    for (int i = start; i < end; i++)
+    {
+        array[i] = '\0';
+    }
+}
+
+/**
+ * @brief restes given array to inital "000" value to prevent wrong outputs by previous convertions
+ *
+ * @param array_to_reset
+ */
+void reset_number_as_character_array(char *array_to_reset, int size)
+{
+    for (int i = 0; i < size - 1; i++)
+    {
+        array_to_reset[i] = '0';
+    }
+}
+
+/**
+ * @brief converts the given number to an charcter and fills the gien array with the converted number
+ *
+ * @param number
+ * @param array_to_fill
+ */
+void number_to_characters(int number, char *array_to_fill, int size)
+{
+    reset_number_as_character_array(array_to_fill, size);
+    int number_to_convert = number;
+    int array_position = size - 2;
+    if (number_to_convert != 0)
+    {
+        while (number_to_convert > 0)
+        {
+            array_to_fill[array_position--] = (number_to_convert % 10) + ASCII_CONVERSION_OFFSET;
+            number_to_convert /= 10;
+        }
+    }
+}
+
+int current_position_at_wrong_input = 0;
+/**
+ * @brief adds input to the wrong_inputs array if user input isn't part of the word_to_guess array, or it's already gueesed
+ *
+ */
+void update_wrong_inputs(char lower_case_input, char* wrong_inputs)
+{
+    wrong_inputs[current_position_at_wrong_input] = lower_case_input;
+    current_position_at_wrong_input += 1;
+}
+
+void reset_wrong_inputs_position()
+{
+    current_position_at_wrong_input = 0;
 }

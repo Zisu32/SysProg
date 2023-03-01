@@ -11,7 +11,6 @@ void draw_stats(void);
 void draw_you_win(void);
 void draw_end(void);
 void draw_starting_screen(void);
-int get_word_to_guess(char *word_to_guess, int size);
 void draw_rules(void);
 void clear_screen(void);
 void fill_stats(const char *array_with_number, int position);

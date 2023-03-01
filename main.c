@@ -8,84 +8,31 @@
 #define MAX_WRONG_TRIES 11
 #define MAX_WORD_LENGTH 26
 #define MAX_NUMBER_CHARS 4
-#define ASCII_CONVERSION_OFFSET 48
 #define UPPER_CASE_P 80
 #define LOWER_CASE_P 112
-#define UPPER_CASE_Q 81
-#define LOWER_CASE_Q 113
 #define ESCAPE_ASCCI 27
+#define ENTER_ASCII_VALUE 13
+#define SMALLEST_UPPER_CASE_ASCII_VALUE 65
+#define HIGHEST_UPPER_CASE_ASCII_VALUE 90
+#define SMALLEST_LOWER_CASE_ASCII_VALUE 97
+#define HIGHEST_LOWER_CASE_ASCII_VALUE 122
 
 char escape = ESCAPE_ASCCI;
 
 int wrong = 0;
-
 int size = 0;
-
 int tries = 0;
-
 int timeouts = 0;
 
 char word_to_guess[MAX_WORD_LENGTH];
 char guessed_word[MAX_WORD_LENGTH];
-
 char wrong_inputs[MAX_WRONG_TRIES];
-int current_position_at_wrong_input = 0;
 
 char tries_as_characters[MAX_NUMBER_CHARS] = "000";
 char wrong_guesses_as_character[MAX_NUMBER_CHARS] = "000";
 char wordToGuessLenght[MAX_NUMBER_CHARS] = "000";
 char timeouts_as_characters[MAX_NUMBER_CHARS] = "000";
 
-void remove_characters_from_array(char *array, int start, int end)
-{
-    for (int i = start; i < end; i++)
-    {
-        array[i] = '\0';
-    }
-}
-
-/**
- * @brief restes given array to inital "000" value to prevent wrong outputs by previous convertions
- *
- * @param array_to_reset
- */
-void reset_number_as_character_array(char *array_to_reset)
-{
-    for (int i = 0; i < MAX_NUMBER_CHARS - 1; i++)
-    {
-        array_to_reset[i] = '0';
-    }
-}
-/**
- * @brief converts the given number to an charcter and fills the gien array with the converted number
- *
- * @param number
- * @param array_to_fill
- */
-void number_to_characters(int number, char *array_to_fill)
-{
-    reset_number_as_character_array(array_to_fill);
-    int number_to_convert = number;
-    int array_position = MAX_NUMBER_CHARS - 2;
-    if (number_to_convert != 0)
-    {
-        while (number_to_convert > 0)
-        {
-            array_to_fill[array_position--] = (number_to_convert % 10) + ASCII_CONVERSION_OFFSET;
-            number_to_convert /= 10;
-        }
-    }
-}
-
-/**
- * @brief adds input to the wrong_inputs array if user input isn't part of the word_to_guess array, or it's already gueesed
- *
- */
-void update_wrong_inputs(char lower_case_input)
-{
-    wrong_inputs[current_position_at_wrong_input] = lower_case_input;
-    current_position_at_wrong_input += 1;
-}
 
 /**
  * @brief updates screen to the newest game progress
@@ -135,7 +82,7 @@ void wrong_guess(char lower_case_input)
     tries += 1;
     if (!is_already_in_wrong_inputs(lower_case_input, wrong_inputs))
     {
-        update_wrong_inputs(lower_case_input);
+        update_wrong_inputs(lower_case_input, wrong_inputs);
     }
     update_gui();
 }
@@ -208,15 +155,48 @@ void play()
     handle_no_guesses_left();
 }
 
+
+/**
+ * @brief Get the word to guess
+ * @details this function returns the size of the word, because the array is initialized empty with a fixed size, so the sizeof function would return always the same value for this array
+ * @param word_to_guess array which gets filled by this function
+ */
+void get_word_to_guess(int length)
+{
+    int position = 0;
+    while (position < length)
+    {
+        char input = read();
+        int input_ascii_value = input;
+        if (input_ascii_value >= SMALLEST_UPPER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_UPPER_CASE_ASCII_VALUE)
+        {
+            word_to_guess[position] = input;
+            position += 1;
+        }
+        else if (input_ascii_value >= SMALLEST_LOWER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_LOWER_CASE_ASCII_VALUE)
+        {
+            word_to_guess[position] = toUpper(input);
+            position += 1;
+        }
+        else if (input_ascii_value == ENTER_ASCII_VALUE)
+        {
+            size = position +1;
+            return;
+        }
+    }
+
+}
+
+
 /**
  * @brief starts the game by getting the word to guess and initializing the necessary arrays
  *
  */
 void start_game()
 {
-    size = get_word_to_guess(word_to_guess, MAX_WORD_LENGTH - 1) + 1;
+    get_word_to_guess( MAX_WORD_LENGTH - 1);
     init_array(guessed_word, size);
-    number_to_characters(size - 1, wordToGuessLenght);
+    number_to_characters(size - 1, wordToGuessLenght, MAX_NUMBER_CHARS);
     print_word("The length of the word we are looking for is:");
     print_word(wordToGuessLenght);
     play();
@@ -228,11 +208,11 @@ void start_game()
  */
 void fill_arrays_for_statistics()
 {
-    number_to_characters(tries, tries_as_characters);
+    number_to_characters(tries, tries_as_characters, MAX_NUMBER_CHARS);
     fill_stats(tries_as_characters, 1);
-    number_to_characters(wrong, wrong_guesses_as_character);
+    number_to_characters(wrong, wrong_guesses_as_character, MAX_NUMBER_CHARS);
     fill_stats(wrong_guesses_as_character, 3);
-    number_to_characters(timeouts, timeouts_as_characters);
+    number_to_characters(timeouts, timeouts_as_characters, MAX_NUMBER_CHARS);
     fill_stats(timeouts_as_characters, 5);
 }
 
@@ -303,7 +283,7 @@ void reset_everything()
     tries = 0;
     wrong = 0;
     timeouts = 0;
-    current_position_at_wrong_input = 0;
+    reset_wrong_inputs_position();
     remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(wrong_inputs, 0, sizeof(wrong_inputs));

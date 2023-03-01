@@ -1,11 +1,6 @@
 #include "user_actions.h"
 #include "logic.h"
 
-#define ENTER_ASCII_VALUE 13
-#define SMALLEST_UPPER_CASE_ASCII_VALUE 65
-#define HIGHEST_UPPER_CASE_ASCII_VALUE 90
-#define SMALLEST_LOWER_CASE_ASCII_VALUE 97
-#define HIGHEST_LOWER_CASE_ASCII_VALUE 122
 
 const char *HANGMAN_ASCII_ART[] =
     {
@@ -428,36 +423,7 @@ void draw_rules()
     print_word(rules_ascii_art[0]);
 }
 
-/**
- * @brief Get the word to guess
- * @details this function returns the size of the word, because the array is initialized empty with a fixed size, so the sizeof function would return always the same value for this array
- * @param word_to_guess array which gets filled by this function
- * @return int length of the given word
- */
-int get_word_to_guess(char *word_to_guess, int size)
-{
-    int position = 0;
-    while (position < size)
-    {
-        char input = read();
-        int input_ascii_value = input;
-        if (input_ascii_value >= SMALLEST_UPPER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_UPPER_CASE_ASCII_VALUE)
-        {
-            word_to_guess[position] = input;
-            position += 1;
-        }
-        else if (input_ascii_value >= SMALLEST_LOWER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_LOWER_CASE_ASCII_VALUE)
-        {
-            word_to_guess[position] = toUpper(input);
-            position += 1;
-        }
-        else if (input_ascii_value == ENTER_ASCII_VALUE)
-        {
-            return position;
-        }
-    }
-    return position;
-}
+
 
 /**
  * @brief wait for user input in order to continue the game
