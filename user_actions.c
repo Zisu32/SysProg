@@ -289,7 +289,7 @@ const char *stats[] =
         "\n\rNO. OF MISENTRIES: ",
         "placeholder\n\r",
         "\n\r"
-        "NO. OF TIMEOUTS: ",
+        "MISENTRIES BY TIMEOUT: ",
         "placeholder\n\r",
         "____________________________________________________\n\r"
         "\n\r"};
