@@ -12,7 +12,7 @@
  * @param low
  * @return char as uppercase
  */
-char toUpper(char low)
+char convert_to_upper(char low)
 {
     int ascii_to_upper = low - 32;
     char upper = ascii_to_upper;
@@ -34,7 +34,7 @@ bool is_input_in_word(char *selected_word, char input, int size)
         {
             return true;
         }
-        else if (selected_word[i] == toUpper(input))
+        else if (selected_word[i] == convert_to_upper(input))
         {
             return true;
         }
@@ -45,7 +45,7 @@ bool is_input_in_word(char *selected_word, char input, int size)
                 return false;
             }
         }
-        else if (selected_word[i] != toUpper(input))
+        else if (selected_word[i] != convert_to_upper(input))
         {
             if (size - 2 == i)
             {
@@ -83,11 +83,11 @@ void fill_guessed_word(char *guessed_word, char *selected_word, char input, int 
     {
         if (selected_word[i] == input)
         {
-            guessed_word[i] = toUpper(input);
+            guessed_word[i] = convert_to_upper(input);
         }
-        else if (selected_word[i] == toUpper(input))
+        else if (selected_word[i] == convert_to_upper(input))
         {
-            guessed_word[i] = toUpper(input);
+            guessed_word[i] = convert_to_upper(input);
         }
     }
 }
@@ -171,11 +171,11 @@ bool is_already_guessed(char input, char *guessed_word, int size)
     for (int i = 0; i < size - 1; i++)
     {
 
-        if (guessed_word[i] == toUpper(input))
+        if (guessed_word[i] == convert_to_upper(input))
         {
             return true;
         }
-        else if (guessed_word[i] != toUpper(input))
+        else if (guessed_word[i] != convert_to_upper(input))
         {
             if (size - 2 == i)
             {

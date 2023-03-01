@@ -7,7 +7,7 @@ void init_array(char * array, int length);
 bool is_equal(char *guessed, char*selected, int size);
 bool is_special_character(char input);
 char convert_to_lower(char input);
-char toUpper(char low);
+char convert_to_upper(char low);
 void remove_characters_from_array(char *array, int start, int end);
 void reset_number_as_character_array(char *array_to_reset, int size);
 void number_to_characters(int number, char *array_to_fill, int size);

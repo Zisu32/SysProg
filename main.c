@@ -235,7 +235,7 @@ void get_word_to_guess(int length)
         }
         else if (input_ascii_value >= SMALLEST_LOWER_CASE_ASCII_VALUE && input_ascii_value <= HIGHEST_LOWER_CASE_ASCII_VALUE)
         {
-            word_to_guess[position] = toUpper(input);
+            word_to_guess[position] = convert_to_upper(input);
             position += 1;
         }
         else if (input_ascii_value == ENTER_ASCII_VALUE)
