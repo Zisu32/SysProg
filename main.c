@@ -168,6 +168,10 @@ void handle_no_guesses_left()
     }
 }
 
+/**
+ * @brief while the word isn't guessed wright and there are more wrong inputs allowed
+ * 
+ */
 void get_guesss()
 {
     start_sysTick();
@@ -218,13 +222,12 @@ void play()
 
 /**
  * @brief Get the word to guess
- * @details this function returns the size of the word, because the array is initialized empty with a fixed size, so the sizeof function would return always the same value for this array
- * @param word_to_guess array which gets filled by this function
+ * @details fills the word_to_guess array 
  */
-void get_word_to_guess(int length)
+void get_word_to_guess()
 {
     int position = 0;
-    while (position < length)
+    while (position < MAX_WORD_LENGTH-1)
     {
         char input = read();
         int input_ascii_value = input;
@@ -244,7 +247,6 @@ void get_word_to_guess(int length)
             return;
         }
     }
-
 }
 
 /**
@@ -253,7 +255,7 @@ void get_word_to_guess(int length)
  */
 void start_game()
 {
-    get_word_to_guess( MAX_WORD_LENGTH - 1);
+    get_word_to_guess();
     init_array(guessed_word, length_of_word);
     number_to_characters(length_of_word - 1, wordToGuessLength, MAX_NUMBER_CHARS);
     print_word("The length of the word we are looking for is:");
@@ -271,9 +273,9 @@ void reset_everything()
     number_of_wrong_inputs = 0;
     timeouts_by_systick = 0;
     reset_wrong_inputs_position();
-    remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
-    remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);
-    remove_characters_from_array(wrong_inputs, 0, sizeof(wrong_inputs));
+    remove_characters_from_array(guessed_word, MAX_WORD_LENGTH);
+    remove_characters_from_array(word_to_guess, MAX_WORD_LENGTH);
+    remove_characters_from_array(wrong_inputs, sizeof(wrong_inputs));
 }
 
 /**

@@ -1,6 +1,7 @@
 #include "hal.h"
 #include "user_actions.h"
 #include "main.h"
+#define ESCAPE_ASCCI 27
 int sysTickCounter = 0;
 
 // Specific implementation for ARM-Cortex M4 here:
@@ -70,6 +71,11 @@ char read_input(void)
   return (char)DataRegister;
 }
 
+/**
+ * @brief returns special character if sysTickCounter reaches the value of 6500 ore more
+ * 
+ * @return char 
+ */
 char read_input_with_interrupt_handling(void)
 {
   uint32_t DataRegister;
@@ -94,7 +100,7 @@ char read_input_with_interrupt_handling(void)
   if (sysTickCounter >= 6500)
   {
     sysTickCounter = 0;
-    char escape = 27;
+    char escape = ESCAPE_ASCCI;
     // Read from UART_O_DR
     DataRegister = ReadFromRegister(0x4000C000 + 0x00);
 

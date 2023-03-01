@@ -205,9 +205,15 @@ bool is_already_in_wrong_inputs(char input, char *wrong_guesses)
     return false;
 }
 
-void remove_characters_from_array(char *array, int start, int end)
+/**
+ * @brief removes all characters from array
+ * 
+ * @param array gives the array that should be cleaned
+ * @param end gives the length of the array that should be cleaned, to prevent access violation at other variables 
+ */
+void remove_characters_from_array(char *array,int end)
 {
-    for (int i = start; i < end; i++)
+    for (int i = 0; i < end; i++)
     {
         array[i] = '\0';
     }
@@ -258,6 +264,10 @@ void update_wrong_inputs(char lower_case_input, char* wrong_inputs)
     current_position_at_wrong_input += 1;
 }
 
+/**
+ * @brief resets the position variable for the wrong_inputs array
+ * 
+ */
 void reset_wrong_inputs_position()
 {
     current_position_at_wrong_input = 0;
