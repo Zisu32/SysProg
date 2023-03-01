@@ -1,9 +1,7 @@
 #include "hal.h"
 
-void print_single_character(char text);
 char read(void);
 char read_with_interrupt_handling(void);
-void waitForAnyInput();
 void print_word(const char *text);
 void draw_hangman(int incorrect);
 void draw_game_over(void);

@@ -426,19 +426,6 @@ void draw_rules()
 
 
 /**
- * @brief wait for user input in order to continue the game
- *
- */
-void waitForAnyInput()
-{
-    while (1)
-    {
-        char input = read();
-        return;
-    }
-}
-
-/**
  * @brief clears the console
  *
  */
@@ -447,15 +434,6 @@ void clear_screen()
     print_word("\033[H\033[J");
 }
 
-/**
- * @brief prints single charcter to console by using printChar function
- *
- * @param text
- */
-void print_single_character(char text)
-{
-    printChar(text);
-}
 
 /**
  * @brief reads input from console and returns it

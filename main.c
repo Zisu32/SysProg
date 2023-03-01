@@ -17,10 +17,10 @@
 #define SMALLEST_LOWER_CASE_ASCII_VALUE 97
 #define HIGHEST_LOWER_CASE_ASCII_VALUE 122
 
-int wrong = 0;
-int size = 0;
+int number_of_wrong_inputs = 0;
+int length_of_word = 0;
 int tries = 0;
-int timeouts = 0;
+int timeouts_by_systick = 0;
 
 char word_to_guess[MAX_WORD_LENGTH];
 char guessed_word[MAX_WORD_LENGTH];
@@ -39,7 +39,7 @@ char timeouts_as_characters[MAX_NUMBER_CHARS] = "000";
 void update_gui()
 {
     clear_screen();
-    draw_hangman(wrong);
+    draw_hangman(number_of_wrong_inputs);
     print_word(guessed_word);
     print_word("Letters guessed wrong:");
     print_word(wrong_inputs);
@@ -51,7 +51,7 @@ void update_gui()
  */
 void true_guess(char input)
 {
-    fill_guessed_word(guessed_word, word_to_guess, input, size);
+    fill_guessed_word(guessed_word, word_to_guess, input, length_of_word);
     tries += 1;
     update_gui();
 }
@@ -63,13 +63,13 @@ void true_guess(char input)
  */
 void wrong_guess(char lower_case_input)
 {
-    wrong += 1;
+    number_of_wrong_inputs += 1;
     tries += 1;
     if (!is_already_in_wrong_inputs(lower_case_input, wrong_inputs) && !is_special_character(lower_case_input))
     {
         update_wrong_inputs(lower_case_input, wrong_inputs);
     }
-    if (wrong == MAX_WRONG_TRIES)
+    if (number_of_wrong_inputs == MAX_WRONG_TRIES)
     {
         stop_sysTick();
     }
@@ -85,9 +85,9 @@ void fill_array_with_statistics()
 {
     number_to_characters(tries, tries_as_characters, MAX_NUMBER_CHARS);
     fill_stats(tries_as_characters, 1);
-    number_to_characters(wrong, wrong_guesses_as_character, MAX_NUMBER_CHARS);
+    number_to_characters(number_of_wrong_inputs, wrong_guesses_as_character, MAX_NUMBER_CHARS);
     fill_stats(wrong_guesses_as_character, 3);
-    number_to_characters(timeouts, timeouts_as_characters, MAX_NUMBER_CHARS);
+    number_to_characters(timeouts_by_systick, timeouts_as_characters, MAX_NUMBER_CHARS);
     fill_stats(timeouts_as_characters, 5);
 }
 
@@ -133,7 +133,7 @@ void finish_game(int result)
         print_word(word_to_guess);
     }
     print_word("Press any key to show statistics");
-    waitForAnyInput();
+    read();
     fill_array_with_statistics();
     draw_stats();
     draw_play_again();
@@ -158,11 +158,11 @@ void finish_game(int result)
 void handle_no_guesses_left()
 {
     stop_sysTick();
-    if (wrong == MAX_WRONG_TRIES)
+    if (number_of_wrong_inputs == MAX_WRONG_TRIES)
     {
         finish_game(0);
     }
-    else if (is_equal(guessed_word, word_to_guess, size))
+    else if (is_equal(guessed_word, word_to_guess, length_of_word))
     {
         finish_game(1);
     }
@@ -171,12 +171,12 @@ void handle_no_guesses_left()
 void get_guesss()
 {
     start_sysTick();
-    while (!is_equal(guessed_word, word_to_guess, size) && wrong < MAX_WRONG_TRIES)
+    while (!is_equal(guessed_word, word_to_guess, length_of_word) && number_of_wrong_inputs < MAX_WRONG_TRIES)
     {
         char input = read_with_interrupt_handling();
         if (input == ESCAPE_ASCCI)
         {
-            timeouts++;
+            timeouts_by_systick++;
             wrong_guess(input);
         }
         else if (input != ESCAPE_ASCCI)
@@ -184,9 +184,9 @@ void get_guesss()
             char lower_input = convert_to_lower(input);
             if (!is_special_character(input))
             {
-                if (is_input_in_word(word_to_guess, lower_input, size))
+                if (is_input_in_word(word_to_guess, lower_input, length_of_word))
                 {
-                    if (!is_already_guessed(lower_input, guessed_word, size))
+                    if (!is_already_guessed(lower_input, guessed_word, length_of_word))
                     {
                         true_guess(lower_input);
                     }
@@ -195,7 +195,7 @@ void get_guesss()
                         wrong_guess(lower_input);
                     }
                 }
-                else if (!is_input_in_word(word_to_guess, lower_input, size))
+                else if (!is_input_in_word(word_to_guess, lower_input, length_of_word))
                 {
                     wrong_guess(lower_input);
                 }
@@ -240,7 +240,7 @@ void get_word_to_guess(int length)
         }
         else if (input_ascii_value == ENTER_ASCII_VALUE)
         {
-            size = position +1;
+            length_of_word = position +1;
             return;
         }
     }
@@ -254,8 +254,8 @@ void get_word_to_guess(int length)
 void start_game()
 {
     get_word_to_guess( MAX_WORD_LENGTH - 1);
-    init_array(guessed_word, size);
-    number_to_characters(size - 1, wordToGuessLength, MAX_NUMBER_CHARS);
+    init_array(guessed_word, length_of_word);
+    number_to_characters(length_of_word - 1, wordToGuessLength, MAX_NUMBER_CHARS);
     print_word("The length of the word we are looking for is:");
     print_word(wordToGuessLength);
     play();
@@ -268,8 +268,8 @@ void start_game()
 void reset_everything()
 {
     tries = 0;
-    wrong = 0;
-    timeouts = 0;
+    number_of_wrong_inputs = 0;
+    timeouts_by_systick = 0;
     reset_wrong_inputs_position();
     remove_characters_from_array(guessed_word, 0, MAX_WORD_LENGTH);
     remove_characters_from_array(word_to_guess, 0, MAX_WORD_LENGTH);

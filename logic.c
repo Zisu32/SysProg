@@ -114,18 +114,6 @@ bool is_equal(char *guessed, char *selected, int size)
 }
 
 /**
- * @brief increase counter of wrong guesses
- * @param wrong_guesses
- * @return new value of wrong guesses
- */
-
-int update_wrong_guesses(int wrong_guesses)
-{
-    wrong_guesses++;
-    return wrong_guesses;
-}
-
-/**
  * @brief checks if input is a special character
  * @param input
  * @return true if it's a special character, falls if its a letter excpet ö,ä,ü
