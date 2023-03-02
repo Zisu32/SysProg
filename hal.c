@@ -1,3 +1,4 @@
+/// \file
 #include "hal.h"
 #include "user_actions.h"
 #include "main.h"

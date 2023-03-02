@@ -1,6 +1,4 @@
-#include <ctype.h>
-#include <stdlib.h>
-#include <time.h>
+/// \file
 #include "logic.h"
 #include "user_actions.h"
 

@@ -1,5 +1,5 @@
+/// \file
 #include "user_actions.h"
-#include "logic.h"
 
 
 const char *HANGMAN_ASCII_ART[] =

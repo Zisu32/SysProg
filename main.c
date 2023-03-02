@@ -1,6 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
+/// \file
 #include "main.h"
 #include "user_actions.h"
 #include "logic.h"
