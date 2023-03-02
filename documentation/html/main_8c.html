@@ -76,10 +76,7 @@ $(function() {
   <div class="headertitle"><div class="title">main.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;time.h&gt;</code><br />
-<code>#include &quot;main.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;main.h&quot;</code><br />
 <code>#include &quot;user_actions.h&quot;</code><br />
 <code>#include &quot;logic.h&quot;</code><br />
 </div><table class="memberdecls">
@@ -121,6 +118,12 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:adad1c6f9e4bf1fa683e422ddbc75e698"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#adad1c6f9e4bf1fa683e422ddbc75e698">start_sysTick</a> ()</td></tr>
+<tr class="memdesc:adad1c6f9e4bf1fa683e422ddbc75e698"><td class="mdescLeft">&#160;</td><td class="mdescRight">starts the SysTick Timer  <br /></td></tr>
+<tr class="separator:adad1c6f9e4bf1fa683e422ddbc75e698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7768e17ff1a7cf3c965b03311620b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6e7768e17ff1a7cf3c965b03311620b5">stop_sysTick</a> ()</td></tr>
+<tr class="memdesc:a6e7768e17ff1a7cf3c965b03311620b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">stops the SysTick if the game is over  <br /></td></tr>
+<tr class="separator:a6e7768e17ff1a7cf3c965b03311620b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a527d20bc1ef18dab15e1a3a684eb4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a9a527d20bc1ef18dab15e1a3a684eb4a">update_gui</a> ()</td></tr>
 <tr class="memdesc:a9a527d20bc1ef18dab15e1a3a684eb4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates screen to the newest game progress  <br /></td></tr>
 <tr class="separator:a9a527d20bc1ef18dab15e1a3a684eb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,12 +136,6 @@ Functions</h2></td></tr>
 <tr class="memitem:aef6e63fb7440a76f0755179e4d3e45c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aef6e63fb7440a76f0755179e4d3e45c9">fill_array_with_statistics</a> ()</td></tr>
 <tr class="memdesc:aef6e63fb7440a76f0755179e4d3e45c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">fills the stats array with the number of tries and the number of mistakes  <br /></td></tr>
 <tr class="separator:aef6e63fb7440a76f0755179e4d3e45c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adad1c6f9e4bf1fa683e422ddbc75e698"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#adad1c6f9e4bf1fa683e422ddbc75e698">start_sysTick</a> ()</td></tr>
-<tr class="memdesc:adad1c6f9e4bf1fa683e422ddbc75e698"><td class="mdescLeft">&#160;</td><td class="mdescRight">starts the SysTick Timer  <br /></td></tr>
-<tr class="separator:adad1c6f9e4bf1fa683e422ddbc75e698"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e7768e17ff1a7cf3c965b03311620b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6e7768e17ff1a7cf3c965b03311620b5">stop_sysTick</a> ()</td></tr>
-<tr class="memdesc:a6e7768e17ff1a7cf3c965b03311620b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">stops the SysTick if the game is over  <br /></td></tr>
-<tr class="separator:a6e7768e17ff1a7cf3c965b03311620b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b64d01ad05c0e1bb54b40ee2426db08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7b64d01ad05c0e1bb54b40ee2426db08">finish_game</a> (int result)</td></tr>
 <tr class="memdesc:a7b64d01ad05c0e1bb54b40ee2426db08"><td class="mdescLeft">&#160;</td><td class="mdescRight">draws the final results to the console  <br /></td></tr>
 <tr class="separator:a7b64d01ad05c0e1bb54b40ee2426db08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,7 +207,6 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>timeouts_as_character
         <tr>
           <td class="memname">void fill_array_with_statistics </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -334,7 +330,6 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>timeouts_as_character
         <tr>
           <td class="memname">void play </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -373,7 +368,6 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>timeouts_as_character
         <tr>
           <td class="memname">void start_game </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -393,7 +387,6 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>timeouts_as_character
         <tr>
           <td class="memname">void start_sysTick </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -413,7 +406,6 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>timeouts_as_character
         <tr>
           <td class="memname">void stop_sysTick </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -453,7 +445,6 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>timeouts_as_character
         <tr>
           <td class="memname">void update_gui </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>

@@ -1,8 +1,5 @@
 \hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
 \label{main_8c}\index{main.c@{main.c}}
-{\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$time.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}user\+\_\+actions.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}logic.\+h\char`\"{}}\newline
@@ -45,6 +42,10 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{main_8c_adad1c6f9e4bf1fa683e422ddbc75e698}{start\+\_\+sys\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em starts the Sys\+Tick Timer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a6e7768e17ff1a7cf3c965b03311620b5}{stop\+\_\+sys\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em stops the Sys\+Tick if the game is over \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a9a527d20bc1ef18dab15e1a3a684eb4a}{update\+\_\+gui}} ()
 \begin{DoxyCompactList}\small\item\em updates screen to the newest game progress \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_abd17f710c0fdeb99ad70e3baeade5b44}{true\+\_\+guess}} (char input)
@@ -53,10 +54,6 @@ void \mbox{\hyperlink{main_8c_a428b75e24bf4259dca6072375e870df8}{wrong\+\_\+gues
 \begin{DoxyCompactList}\small\item\em handles input if it is not part of the word \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_aef6e63fb7440a76f0755179e4d3e45c9}{fill\+\_\+array\+\_\+with\+\_\+statistics}} ()
 \begin{DoxyCompactList}\small\item\em fills the stats array with the number of tries and the number of mistakes \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8c_adad1c6f9e4bf1fa683e422ddbc75e698}{start\+\_\+sys\+Tick}} ()
-\begin{DoxyCompactList}\small\item\em starts the Sys\+Tick Timer \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8c_a6e7768e17ff1a7cf3c965b03311620b5}{stop\+\_\+sys\+Tick}} ()
-\begin{DoxyCompactList}\small\item\em stops the Sys\+Tick if the game is over \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a7b64d01ad05c0e1bb54b40ee2426db08}{finish\+\_\+game}} (int result)
 \begin{DoxyCompactList}\small\item\em draws the final results to the console \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a696ad541e8cfbd2a123358d74939df66}{handle\+\_\+no\+\_\+guesses\+\_\+left}} ()
@@ -116,7 +113,7 @@ char {\bfseries timeouts\+\_\+as\+\_\+characters} \mbox{[}MAX\+\_\+\+NUMBER\+\_\
 \index{main.c@{main.c}!fill\_array\_with\_statistics@{fill\_array\_with\_statistics}}
 \index{fill\_array\_with\_statistics@{fill\_array\_with\_statistics}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{fill\_array\_with\_statistics()}{fill\_array\_with\_statistics()}}
-{\footnotesize\ttfamily void fill\+\_\+array\+\_\+with\+\_\+statistics (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void fill\+\_\+array\+\_\+with\+\_\+statistics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -181,7 +178,7 @@ is the main function called by \mbox{\hyperlink{entry__c_8c}{entry\+\_\+c.\+c}}
 \index{main.c@{main.c}!play@{play}}
 \index{play@{play}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{play()}{play()}}
-{\footnotesize\ttfamily void play (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -201,7 +198,7 @@ resets dynamic filled values and arrays
 \index{main.c@{main.c}!start\_game@{start\_game}}
 \index{start\_game@{start\_game}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{start\_game()}{start\_game()}}
-{\footnotesize\ttfamily void start\+\_\+game (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void start\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -211,7 +208,7 @@ starts the game by getting the word to guess and initializing the necessary arra
 \index{main.c@{main.c}!start\_sysTick@{start\_sysTick}}
 \index{start\_sysTick@{start\_sysTick}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{start\_sysTick()}{start\_sysTick()}}
-{\footnotesize\ttfamily void start\+\_\+sys\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void start\+\_\+sys\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -221,7 +218,7 @@ starts the Sys\+Tick Timer
 \index{main.c@{main.c}!stop\_sysTick@{stop\_sysTick}}
 \index{stop\_sysTick@{stop\_sysTick}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{stop\_sysTick()}{stop\_sysTick()}}
-{\footnotesize\ttfamily void stop\+\_\+sys\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void stop\+\_\+sys\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -241,7 +238,7 @@ handles input if it\textquotesingle{}s in the word\+\_\+to\+\_\+guess array
 \index{main.c@{main.c}!update\_gui@{update\_gui}}
 \index{update\_gui@{update\_gui}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{update\_gui()}{update\_gui()}}
-{\footnotesize\ttfamily void update\+\_\+gui (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void update\+\_\+gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
