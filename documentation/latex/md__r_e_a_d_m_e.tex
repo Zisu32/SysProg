@@ -1,0 +1,96 @@
+ ~\newline
+\hypertarget{md__r_e_a_d_m_e_autotoc_md0}{}\doxysection{Deployment}\label{md__r_e_a_d_m_e_autotoc_md0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysubsection{Arm Cortex-\/\+M4 Base Project}\label{md__r_e_a_d_m_e_autotoc_md1}
+Example Workspace für die Vorlesung Systemnahe Programmierung 2 an der DHWB Ravensburg.\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsubsection{Arm Documentation}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item \href{https://developer.arm.com/Processors/Cortex-M4}{\texttt{ Cortex M4 Startseite}}
+\item \href{https://developer.arm.com/documentation/ddi0403/latest/}{\texttt{ ARMv7-\/M Architecture Reference Manual}}
+\item \href{https://developer.arm.com/documentation/dui0553/b/?lang=en}{\texttt{ Cortex-\/\+M4 Devices Generic User Guide}}
+\item \href{https://developer.arm.com/documentation/100166/0001/?lang=en}{\texttt{ Arm Cortex-\/\+M4 Processor Technical Reference Manual Revision r0p1}}
+\item \href{https://github.com/ARM-software/abi-aa}{\texttt{ Arm Application Binary Interface}}
+\item \href{https://sourceware.org/binutils/docs-2.40/as/index.html}{\texttt{ GNU Assembler Documentation}}
+\item \href{https://sourceware.org/binutils/docs-2.40/ld/index.html}{\texttt{ GNU Linker Documentation}}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsubsection{Prerequisites}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyItemize}
+\item CMake
+\item Arm GCC Cross-\/\+Compiler
+\item Wind River Simics
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsubsection{Building}\label{md__r_e_a_d_m_e_autotoc_md4}
+Auschecken des Quellcodes\+: {\ttfamily git clone \href{https://github.com/infohoschie/Arm-Cortex-M4-Base.git}{\texttt{ https\+://github.\+com/infohoschie/\+Arm-\/\+Cortex-\/\+M4-\/\+Base.\+git}}}
+
+Erstellen des Build\+:
+\begin{DoxyItemize}
+\item Mittels CMake Presets\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/\ Klassisch:}
+\DoxyCodeLine{\ \ ```cmake\ -\/B\ build\ -\/S\ .\ -\/DCMAKE\_BUILD\_TYPE=Debug\ -\/DCMAKE\_TOOLCHAIN\_FILE=toolchain.cmake}
+
+\end{DoxyCode}
+
+\item Caro\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Bauen:}
+\DoxyCodeLine{\ -\/\ Mittels\ CMake\ Presets:}
+\DoxyCodeLine{\ \ \ ```cmake\ -\/-\/build\ -\/-\/preset\ arm-\/cortex-\/m4}
+
+\end{DoxyCode}
+
+\item Klassisch\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Neue\ .c\ files\ immer\ in\ CmakeList.txt\ einfügen\ unter\ "{}target\_sources"{}}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\#\#\#\ Running\ in\ Wind\ River\ Simics}
+\DoxyCodeLine{Install\ Wind\ River\ Simics\ (Currently\ only\ for\ Windows\ and\ Linux\ available)}
+\DoxyCodeLine{}
+\DoxyCodeLine{**Note**}
+\DoxyCodeLine{For\ Linux\ installation\ assure,\ that\ I386\ Support\ is\ available,\ e.g.\ for\ }
+\DoxyCodeLine{Ubuntu/\ Debian:\ ```sudo\ dpkg\ -\/-\/add-\/architecture\ i386}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+Propagate the License Server via environment variable\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{SIMICS\_LICENSE\_FILE=27000@wrs-\/lizenz.inf.dhbw-\/ravensburg.de```\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Start\ Simics,\ e.g.\ via\ command-\/line:}
+\DoxyCodeLine{```<SIMICS\_INSTALL>/bin/simics6\_22\_12/simics-\/6/simics-\/6.0.154/bin/simics-\/eclipse}
+
+\end{DoxyCode}
+ Create Simics Workspace
+
+Create Simics Project\+: File -\/\texorpdfstring{$>$}{>} New -\/\texorpdfstring{$>$}{>} Simics Project
+
+Via Tab {\itshape Simics Control} create new {\itshape Simics Session}. Select {\itshape Target System}\+: {\itshape arm-\/cortex-\/m4-\/ref -\/ cortex-\/m4-\/ref-\/helloworld} Modify {\itshape Parameters}\+: {\itshape Runtime} -\/\texorpdfstring{$>$}{>} {\itshape demo\+\_\+image} set to built binary Select {\itshape Start as debug session}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Project Conventions}\label{md__r_e_a_d_m_e_autotoc_md5}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{IDEs}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Jetbrains CLion Das Projekt kann direkt in der IDE geöffnet (ausgechecked) werden. Die CMake Presets werden direkt als build-\/target angeboten
+\item Visual Studio Code
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{Agreements}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Language\+: English
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{Tools}\label{md__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item ASCII Art\+: \href{http://www.patorjk.com/software/taag/\#p=display&h=3&f=Standard&t=You\%20\%20\%20win\%20!\%0A\%0A}{\texttt{ http\+://www.\+patorjk.\+com/software/taag/\#p=display\&h=3\&f=\+Standard\&t=\+You\%20\%20\%20win\%20!\%0\+A\%0A}}
+\item Font\+: Big
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{User Manual}\label{md__r_e_a_d_m_e_autotoc_md9}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{Start}\label{md__r_e_a_d_m_e_autotoc_md10}
+Start the simics project, press F6 and switch to the serial console. Press \char`\"{}s\char`\"{} or \char`\"{}\+S\char`\"{} to start the game.
+
+You can now type a word that you want your friends to guess. Of course, your word won\textquotesingle{}t show so that your friends won\textquotesingle{}t see it. Remember not to use special characters such as \char`\"{}ä, ö, ü\char`\"{} or punctuation characters. Don\textquotesingle{}t care about case-\/sensitivity, lower-\/case letters and capital letters are fine. To confirm your word, press \char`\"{}\+Enter\char`\"{}.
+
+TODO Spielablauf
+
+In case you need inspiration for good guessing words, check out the \char`\"{}word\+\_\+inspo\+\_\+\+A\char`\"{} and \char`\"{}word\+\_\+inspo\+\_\+\+B\char`\"{}. The lists contain different words, so you can play in turns without using the same words.\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysubsection{Game}\label{md__r_e_a_d_m_e_autotoc_md11}
+Now the player is in turn. Type in the letters you expect in the word. You\textquotesingle{}ll be shown the letters you tried underneath the graphic and the letters you already guessed correct.
+
+TODO Rundenzeit\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysubsection{End}\label{md__r_e_a_d_m_e_autotoc_md12}
+The game will guido you through all the options you have in order to play again or quit the game. Once you decide to finish playing, you\textquotesingle{}ll ...
+
+TODO How to 

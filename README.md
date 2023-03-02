@@ -60,7 +60,7 @@ Select *Target System*: *arm-cortex-m4-ref - cortex-m4-ref-helloworld*
 Modify *Parameters*: *Runtime* -> *demo_image* set to built binary
 Select *Start as debug session*
 
-
+#
 
 # Project Conventions
 
@@ -79,19 +79,31 @@ Select *Start as debug session*
  - ASCII Art: http://www.patorjk.com/software/taag/#p=display&h=3&f=Standard&t=You%20%20%20win%20!%0A%0A
  - Font: Big
 
-
+#
 
 # User Manual
 
 ## Start
-Start the simics project, press F6 and switch to the serial console. Press "s" or "S" to start the game.
+Start the simics project, press F6 and switch to the serial console. Press "s" or "S" to start the game. Hans, the Hangman will guide you through the game.
 
-You can now type a word that you want your friends to guess. Of course, your word won't show so that your friends won't see it. Remember not to use special characters such as "ä, ö, ü" or punctuation characters. Don't care about case-sensitivity, lower-case letters and capital letters are fine. To confirm your word, press "Enter".
+Player 1: You can now type a word with a maximum of 25 letters that you want your friends to guess. Of course, your word won't show so that your friends won't see it and the suspence is kept. Remember not to use special characters such as "ä, ö, ü", numbers or punctuation characters. Words with hyphens or spaces are also not allowed and will be ignored. You don't need to care about case-sensitivity, lower-case letters and capital letters are fine. 
+
+Please mind that once you typed in a letter, there's no way back. The delete-key will not be accepted.
+
+To confirm your word, press "Enter".
+
+In case you need inspiration for good guessing words, check out the word lists ["word_inspo_A"](word_inspo_A.txt) and ["word_inspo_B"](word_inspo_B.txt). The lists contain different words, so you can play in turns without using the same words.
 
 ## Game
-Now the player is in turn. Type in the letters you expect in the word. You'll be shown the letters you tried underneath the graphic and the letters you already guessed correct.
+Player 2: Type in the letters you expect in the word. Under the graphic that shows your progress, you'll be shown the letters you already guessed correct as well as the letters you guessed wrong.
 
-TODO Rundenzeit
+Keep in mind: time is ticking - if you need too long for your guess, it will be counted as a wrong guess.
+
+## Game over
+After each round Hans, the Hangman, will leave a comment about how well you did. Furthermore, you'll be shown you game statistics when you press any key.
+
+## Try again
+Once you finish a round, Hans, the Hangman, wheteher dead or alive, will offer you another game. Press "p" or "P" to accept.
 
 ## End
-Once you win or loose, press "p" or "P" to start a new game.
+In case you're not in for another round, press any other key and Hans, the Hangman, will greet goodbye an tell you who was involved in the making of HangMan - Terminal Edition.

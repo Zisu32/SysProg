@@ -10,6 +10,7 @@ void printStringWithLen(const char *text, int len);
 
 // Input Routines:
 char read_input(void);
+char read_input_with_interrupt_handling(void);
 
 // Generic Register-Access:
 void WriteToRegister( uint32_t address, uint32_t value);
