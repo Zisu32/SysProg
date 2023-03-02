@@ -4,5 +4,3 @@
 #include "hal.h"
 
 void main(void);
-void stop_sysTick(void);
-void start_sysTick(void);

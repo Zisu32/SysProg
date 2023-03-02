@@ -31,6 +31,27 @@ char timeouts_as_characters[MAX_NUMBER_CHARS] = "000";
 
 
 /**
+ * @brief starts the SysTick Timer
+ *
+ */
+void start_sysTick()
+{
+    uint32_t clocks_to_tick = 80000 - 1;
+    WriteToRegister(0xE000E014, clocks_to_tick);
+    WriteToRegister(0xE000E018, 0);
+    WriteToRegister(0xE000E010, 0x00000007);
+}
+
+/**
+ * @brief stops the SysTick if the game is over
+ *
+ */
+void stop_sysTick()
+{
+    WriteToRegister(0xE000E010, 0x00000000);
+}
+
+/**
  * @brief updates screen to the newest game progress
  *
  */
@@ -90,26 +111,7 @@ void fill_array_with_statistics()
 }
 
 
-/**
- * @brief starts the SysTick Timer
- *
- */
-void start_sysTick()
-{
-    uint32_t clocks_to_tick = 80000 - 1;
-    WriteToRegister(0xE000E014, clocks_to_tick);
-    WriteToRegister(0xE000E018, 0);
-    WriteToRegister(0xE000E010, 0x00000007);
-}
 
-/**
- * @brief stops the SysTick if the game is over
- *
- */
-void stop_sysTick()
-{
-    WriteToRegister(0xE000E010, 0x00000000);
-}
 
 
 /**
