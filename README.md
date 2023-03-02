@@ -86,7 +86,7 @@ Select *Start as debug session*
 ## Start
 Start the simics project, press F6 and switch to the serial console. Press "s" or "S" to start the game. Hans, the Hangman will guide you through the game.
 
-Player 1: You can now type a word with a maximum of 25 letters that you want your friends to guess. Of course, your word won't show so that your friends won't see it and the suspence is kept. Remember not to use special characters such as "ä, ö, ü", numbers or punctuation characters. Words with hyphens or spaces are not allowed. You don't need to care about case-sensitivity, lower-case letters and capital letters are fine. 
+Player 1: You can now type a word with a maximum of 25 letters that you want your friends to guess. Of course, your word won't show so that your friends won't see it and the suspence is kept. Remember not to use special characters such as "ä, ö, ü", numbers or punctuation characters. Words with hyphens or spaces are also not allowed and will be ignored. You don't need to care about case-sensitivity, lower-case letters and capital letters are fine. 
 
 Please mind that once you typed in a letter, there's no way back. The delete-key will not be accepted.
 
