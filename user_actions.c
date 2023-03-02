@@ -1,7 +1,6 @@
 /// \file
 #include "user_actions.h"
 
-
 const char *HANGMAN_ASCII_ART[] =
     {
         " ",
@@ -342,7 +341,6 @@ const char *rules_ascii_art[] =
 
 /**
  * @brief draw hangman at the given position to the console
- *
  * @param incorrect
  */
 void draw_hangman(int incorrect)
@@ -423,21 +421,16 @@ void draw_rules()
     print_word(rules_ascii_art[0]);
 }
 
-
-
 /**
  * @brief clears the console
- *
  */
 void clear_screen()
 {
     print_word("\033[H\033[J");
 }
 
-
 /**
  * @brief reads input from console and returns it
- *
  * @return char
  */
 char read()
@@ -448,7 +441,6 @@ char read()
 
 /**
  * @brief calls function read_input_with_interrupt_handling in hal.c
- *
  * @return char
  */
 char read_with_interrupt_handling(void)
@@ -459,7 +451,6 @@ char read_with_interrupt_handling(void)
 
 /**
  * @brief prints 'String' to the console by using the printString function
- *
  * @param text
  */
 void print_word(const char *text)
