@@ -243,10 +243,11 @@ void get_word_to_guess()
         }
         else if (input_ascii_value == ENTER_ASCII_VALUE)
         {
-            length_of_word = position +1;
+            length_of_word = position+1;
             return;
         }
     }
+    length_of_word = position+1;
 }
 
 /**
@@ -257,7 +258,7 @@ void start_game()
 {
     get_word_to_guess();
     init_array(guessed_word, length_of_word);
-    number_to_characters(length_of_word - 1, wordToGuessLength, MAX_NUMBER_CHARS);
+    number_to_characters(length_of_word-1, wordToGuessLength, MAX_NUMBER_CHARS);
     print_word("The length of the word we are looking for is:");
     print_word(wordToGuessLength);
     play();
@@ -272,6 +273,7 @@ void reset_everything()
     tries = 0;
     number_of_wrong_inputs = 0;
     timeouts_by_systick = 0;
+    length_of_word = 0;
     reset_wrong_inputs_position();
     remove_characters_from_array(guessed_word, MAX_WORD_LENGTH);
     remove_characters_from_array(word_to_guess, MAX_WORD_LENGTH);
