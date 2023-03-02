@@ -19,20 +19,17 @@ int number_of_wrong_inputs = 0;
 int length_of_word = 0;
 int tries = 0;
 int timeouts_by_systick = 0;
-
-char word_to_guess[MAX_WORD_LENGTH];
-char guessed_word[MAX_WORD_LENGTH];
-char wrong_inputs[MAX_WRONG_TRIES];
-
 char tries_as_characters[MAX_NUMBER_CHARS] = "000";
 char wrong_guesses_as_character[MAX_NUMBER_CHARS] = "000";
 char wordToGuessLength[MAX_NUMBER_CHARS] = "000";
 char timeouts_as_characters[MAX_NUMBER_CHARS] = "000";
 
+char word_to_guess[MAX_WORD_LENGTH];
+char guessed_word[MAX_WORD_LENGTH];
+char wrong_inputs[MAX_WRONG_TRIES];
 
 /**
  * @brief starts the SysTick Timer
- *
  */
 void start_sysTick()
 {
@@ -44,7 +41,6 @@ void start_sysTick()
 
 /**
  * @brief stops the SysTick if the game is over
- *
  */
 void stop_sysTick()
 {
@@ -53,7 +49,6 @@ void stop_sysTick()
 
 /**
  * @brief updates screen to the newest game progress
- *
  */
 void update_gui()
 {
@@ -77,7 +72,6 @@ void true_guess(char input)
 
 /**
  * @brief handles input if it is not part of the word
- *
  * @param lower_case_input
  */
 void wrong_guess(char lower_case_input)
@@ -95,10 +89,8 @@ void wrong_guess(char lower_case_input)
     update_gui();
 }
 
-
 /**
  * @brief fills the stats array with the number of tries and the number of mistakes
- *
  */
 void fill_array_with_statistics()
 {
@@ -110,13 +102,8 @@ void fill_array_with_statistics()
     fill_stats(timeouts_as_characters, 5);
 }
 
-
-
-
-
 /**
  * @brief draws the final results to the console
- *
  * @param result 0 => loose, 1 => win
  */
 void finish_game(int result)
@@ -153,7 +140,6 @@ void finish_game(int result)
 
 /**
  * @brief is called when the word is guessed or too many wrong inputs were made
- *
  */
 void handle_no_guesses_left()
 {
@@ -170,9 +156,8 @@ void handle_no_guesses_left()
 
 /**
  * @brief while the word isn't guessed wright and there are more wrong inputs allowed
- * 
  */
-void get_guesss()
+void get_guess()
 {
     start_sysTick();
     while (!is_equal(guessed_word, word_to_guess, length_of_word) && number_of_wrong_inputs < MAX_WRONG_TRIES)
@@ -208,15 +193,13 @@ void get_guesss()
     }
 }
 
-
 /**
  * @brief calls the functions for the gameplay
- *
  */
 void play()
 {
     print_word("Enter first letter\r");
-    get_guesss();
+    get_guess();
     handle_no_guesses_left();
 }
 
@@ -252,7 +235,6 @@ void get_word_to_guess()
 
 /**
  * @brief starts the game by getting the word to guess and initializing the necessary arrays
- *
  */
 void start_game()
 {
