@@ -6,7 +6,6 @@
 
 /**
  * @brief converts given character to uppercase
- *
  * @param low
  * @return char as uppercase
  */
@@ -16,6 +15,7 @@ char convert_to_upper(char low)
     char upper = ascii_to_upper;
     return upper;
 }
+
 /**
  * @brief cheks if input is in word
  * @details conversion to uppercase is considered as well
@@ -74,7 +74,6 @@ void init_array(char * array, int length)
  * @param input
  * @param size limits the number of steps are made
  */
-
 void fill_guessed_word(char *guessed_word, char *selected_word, char input, int size)
 {
     for (int i = 0; i < size; i++)
@@ -97,7 +96,6 @@ void fill_guessed_word(char *guessed_word, char *selected_word, char input, int 
  * @param size limits the number of steps are made
  * @return true if words are equal, false if still characters are missing
  */
-
 bool is_equal(char *guessed, char *selected, int size)
 {
 
@@ -138,7 +136,6 @@ bool is_special_character(char input)
  * @param input
  * @return lowercase version of input
  */
-
 char convert_to_lower(char input)
 {
     if (!is_special_character(input))
@@ -162,7 +159,6 @@ char convert_to_lower(char input)
  * @param size
  * @return
  */
-
 bool is_already_guessed(char input, char *guessed_word, int size)
 {
 
@@ -190,7 +186,6 @@ bool is_already_guessed(char input, char *guessed_word, int size)
  * @param wrong_guesses
  * @return
  */
-
 bool is_already_in_wrong_inputs(char input, char *wrong_guesses)
 {
     for (int i = 0; i < sizeof(wrong_guesses); i++)
@@ -205,7 +200,6 @@ bool is_already_in_wrong_inputs(char input, char *wrong_guesses)
 
 /**
  * @brief removes all characters from array
- * 
  * @param array gives the array that should be cleaned
  * @param end gives the length of the array that should be cleaned, to prevent access violation at other variables 
  */
@@ -219,7 +213,6 @@ void remove_characters_from_array(char *array,int end)
 
 /**
  * @brief restes given array to inital "000" value to prevent wrong outputs by previous convertions
- *
  * @param array_to_reset
  */
 void reset_number_as_character_array(char *array_to_reset, int size)
@@ -232,7 +225,6 @@ void reset_number_as_character_array(char *array_to_reset, int size)
 
 /**
  * @brief converts the given number to an charcter and fills the gien array with the converted number
- *
  * @param number
  * @param array_to_fill
  */
@@ -254,7 +246,6 @@ void number_to_characters(int number, char *array_to_fill, int size)
 int current_position_at_wrong_input = 0;
 /**
  * @brief adds input to the wrong_inputs array if user input isn't part of the word_to_guess array, or it's already gueesed
- *
  */
 void update_wrong_inputs(char lower_case_input, char* wrong_inputs)
 {
@@ -264,7 +255,6 @@ void update_wrong_inputs(char lower_case_input, char* wrong_inputs)
 
 /**
  * @brief resets the position variable for the wrong_inputs array
- * 
  */
 void reset_wrong_inputs_position()
 {
