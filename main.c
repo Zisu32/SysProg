@@ -55,7 +55,7 @@ void update_gui()
     clear_screen();
     draw_hangman(number_of_wrong_inputs);
     print_word(guessed_word);
-    print_word("Letters guessed wrong:");
+    print_word("Letters guessed wrong or several times:");
     print_word(wrong_inputs);
 }
 
